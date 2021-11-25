@@ -3,7 +3,11 @@ from tqdm import tqdm
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from sacrebleu.metrics import BLEU
+import textdistance
+from statistics import mean
 
+#######################################   DATA ANALYSIS CODE   #########################################################
 
 def dev_file_analysis(file):
     with open(file, 'r', encoding="utf8") as f:
@@ -106,6 +110,31 @@ def train_data_analysis(folder):
     df = pd.DataFrame(lengthes, columns=['length'])
     df.to_csv('lengths_distribution.csv')
 
+#########################################    EVALUATION CODE    ########################################################
+
+def evaluate(sentences, references): # takes as input  2 lists of strings of same lengths
+    assert len(sentences) == len(references)
+
+    # Binary evaluation
+    b = 0
+    for ind in range(len(sentences)):
+        if sentences[ind] == references[ind]:
+            b = b + 1
+
+    #blue score
+    bleu = BLEU()
+    bleu_score = bleu.corpus_score(sentences, [references]) # reference should be a list of a list
+
+    # text distance
+    d_hamming = [ textdistance.hamming.distance(sentences[inx], references[inx]) for inx in range(len(sentences)) ]
+    avg_hamming = mean(d_hamming)
+
+    d_LCSS = [textdistance.lcsstr.distance(sentences[inx], references[inx]) for inx in range(len(sentences)) ]
+    avg_LCSS = mean(d_LCSS)
+
+    return b, bleu_score.score, avg_hamming, avg_LCSS
+
+#################################################    EXECUTION CODE    #################################################
 
 train_data_folder = 'train data/training-monolingual.tokenized.shuffled/'
 dev_data_folder = 'dev data/'
