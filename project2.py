@@ -136,8 +136,8 @@ def evaluate(sentences, references): # takes as input  2 lists of strings of sam
 
 #################################################    EXECUTION CODE    #################################################
 
-train_data_folder = 'train data/training-monolingual.tokenized.shuffled/'
-dev_data_folder = 'dev data/'
+train_data_folder = 'train_data/training-monolingual.tokenized.shuffled/'
+dev_data_folder = 'dev_data/'
 news_file = dev_data_folder + 'news.ref'
 euro_file = dev_data_folder + 'euro.ref'
 hans_file = dev_data_folder + 'hans.ref'

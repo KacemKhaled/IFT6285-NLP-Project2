@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 lengths_distribution.csv
+models/
+train_data/*
+dev_data/*
