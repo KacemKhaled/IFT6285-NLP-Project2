@@ -15,6 +15,11 @@ python pre-process.py --min=5 --max=25
                     --no='" - -- # www http'
                     --nb=1000 --out=<fichier>.ref
                     --lower >! <fichier>.test
+# Train kenlm model bigram on 99 files and build the binary files:
+python kenlm_baseline.py -f full -b 99 -m models/bigram -o 2
+# Train kenlm model trigram on 99 files and build the binary files:
+python kenlm_baseline.py -f full -b 99 -m models/trigram -o 3
+
 ```
 
 ```bash

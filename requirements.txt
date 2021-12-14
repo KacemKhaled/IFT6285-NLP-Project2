@@ -18,3 +18,4 @@ sentencepiece
 spacy == 3.2.1
 sacrebleu == 2.0.0
 textdistance == 4.2.1
+sentencepiece

@@ -3,6 +3,15 @@ from tqdm import tqdm
 from os import listdir, system, path
 import random
 import numpy as np
+import argparse
+def get_args():
+
+    parser = argparse.ArgumentParser(description='draft')
+    parser.add_argument("-f", '--filter', type=str, help="Comma separated values of budgets", default="")
+    parser.add_argument("-n", '--nb', type=int, help="# files read",default=20)
+    parser.add_argument("-c", '--clean', action='store_true', help="remove clomuns",default=False)
+
+    return parser.parse_args()
 
 # train_data_folder = 'train_data/training-monolingual.tokenized.shuffled/'
 #
@@ -33,15 +42,58 @@ import numpy as np
 #
 # print(pos_match(sent,ref))
 
-taille = 5
-for i in range(taille):
-    for j in range(taille ):
-        if i+j  == taille - 1 or i  == j:
-            print("#", end='')
-        else:
-            print(" ", end='')
-        if j == taille-1 :
-            print()
+
+
+
+def lcstr_words(X, Y):
+    """ Dynamic Programming implementation of LCS problem
+    Code inspired from https://www.geeksforgeeks.org/python-program-for-longest-common-subsequence/
+    """
+    X = X.split()
+    Y = Y.split()
+    # find the length of the strings
+    m = len(X)
+    n = len(Y)
+
+    # declaring the array for storing the dp values
+    L = [[None] * (n + 1) for i in range(m + 1)]
+
+    """Following steps build L[m + 1][n + 1] in bottom up fashion
+    Note: L[i][j] contains length of LCS of X[0..i-1]
+    and Y[0..j-1]"""
+    for i in range(m + 1):
+        for j in range(n + 1):
+            if i == 0 or j == 0:
+                L[i][j] = 0
+            elif X[i - 1] == Y[j - 1]:
+                L[i][j] = L[i - 1][j - 1] + 1
+            else:
+                L[i][j] = max(L[i - 1][j], L[i][j - 1])
+
+    # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
+    return L[m][n]
+
+import pandas as pd
+
+def best_scores():
+    args = get_args()
+    scores = df = pd.read_json('results/results.json')
+    df = scores.T.sort_values(by=['bleu_score'],ascending=False)
+    #
+    df = df.reset_index()
+    df = df.rename(columns={"index": "model"})
+
+    for filter in args.filter.split(','):
+        df = df[df['model'].str.contains(filter)]
+    if args.clean:
+        df = df.drop(['avg_hamming' , 'avg_norm_hamming' , 'avg_LCSSeq', 'avg_LCSStr'], axis=1)
+    print(df.head(args.nb))
+
+best_scores()
+
+
+# This code is contributed by Nikhil Kumar Singh(nickzuck_007)
+
 
 # import kenlm
 # model = kenlm.Model('models/trigram_p9.arpa')
