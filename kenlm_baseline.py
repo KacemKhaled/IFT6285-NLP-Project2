@@ -29,7 +29,9 @@ def get_args():
     parser.add_argument("-s", '--scoring', type=str, help="the score to use",choices=['perplexity','score'], default='perplexity')
     parser.add_argument("-m", '--model_file', type=str, help="the model to use", default='models/bigram')
     parser.add_argument("-v", '--verbosity', type=int, help="increase output verbosity", default=0)
-    parser.add_argument("-b", '--nb', type=int, help="# files read",default=2)
+    parser.add_argument("-n", '--nb', type=int, help="# files read",default=2)
+    parser.add_argument("-d", '--head', nargs='+',type=int, help="head size, default : nothing",default=[0])
+    parser.add_argument("-b", '--backoff', nargs='+',type=int, help="backoff, default: 1",default=[0])
     parser.add_argument("-o", '--order', type=int, help="2: bigram, 3: trigram",default=2)
     parser.add_argument("-t", '--retrain', action='store_true', help="force retraining",default=False)
     parser.add_argument("-p", '--reprocess', action='store_true', help="force reprocessing",default=False)
@@ -57,7 +59,7 @@ def find_permutations(seq,r):
     return permutations
 
 
-def solver_full(model, sentence,head_size = 1,scoring='perplexity',verbose=0):
+def solver_full(model, sentence,head_size = 1,scoring='perplexity',verbose=0,backoff=0):
     """
     Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
     trigram/bigram for scoring we assume that sequences are longer than 3 words
@@ -112,7 +114,7 @@ def solver_full(model, sentence,head_size = 1,scoring='perplexity',verbose=0):
     return result
 
 
-def solver_acc(model, sentence, head_size = 1,scoring='perplexity',verbose=0):
+def solver_acc(model, sentence, head_size = 1,scoring='perplexity',verbose=0,backoff=0):
     """
     Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
     trigram/bigram for scoring
@@ -168,7 +170,7 @@ def solver_acc(model, sentence, head_size = 1,scoring='perplexity',verbose=0):
 
 
 
-def solver_acc_2(model, sentence, head_size = 1, scoring='perplexity',verbose=0):
+def solver_acc_2(model, sentence, head_size = 1, scoring='perplexity',verbose=0,backoff=0):
     """
     Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
     trigram/bigram for scoring
@@ -407,7 +409,8 @@ def evaluate_files(dev_file,ref_file):
 
 
 
-def predict(model,test_file,solve_func,head_size,version="",verbose=0,evaluation_only=False,scoring='perplexity'):
+def predict(model,test_file,solve_func,head_size,version="",
+            verbose=0,evaluation_only=False,scoring='perplexity',backoff=0):
     dev_file = path.splitext(test_file)[0]+str(version)+'.dev'
     ref_file = path.splitext(test_file)[0]+'.ref'
     print(test_file,dev_file,ref_file)
@@ -418,7 +421,7 @@ def predict(model,test_file,solve_func,head_size,version="",verbose=0,evaluation
             sentences = test.read().split('\n')
             for sent in tqdm(sentences):
                 if sent != "":
-                    prediction = solve_func(model, sent, head_size,scoring,verbose=verbose)
+                    prediction = solve_func(model, sent, head_size,scoring,verbose=verbose,backoff=backoff)
                     dev.write(prediction+'\n')
                     dev.flush()
     score = evaluate_files(ref_file, dev_file)
@@ -518,19 +521,21 @@ def train(model_file, folder,order=2,nb=9,test=False,**params):
         print(f'Time: {t:.2f}s\t Size: {size:.2f}MB\t Score: {mean(score):.2f}')
         return t, size, score
     else:
-        return -1, -1, -1
+        size = path.getsize(model_binary_name) / (1024 * 1024)
+        return -1, size, -1
 
 def load_model(model_binary_name):
     t = time.time()
     print(f"Loading model : {model_binary_name}")
     model = kenlm.Model(model_binary_name)
-    loading_time = time.time() - t
+    loading_time = round(time.time() - t,2)
     print(f"Loading time: {loading_time:.2f}s")
-    return model
+    return model,loading_time
 
 if __name__ == '__main__':
     args = get_args()
     params = vars(args)
+    print(params)
     if args.folder == 'full':
         folder = folder_full
     elif args.folder == 'short':
@@ -540,6 +545,22 @@ if __name__ == '__main__':
     params['folder']= folder
     model_file_name = f'{args.model_file}{args.nb}.arpa'
     model_binary_name = f'{args.model_file}{args.nb}.bin'
+
+    test_files = ['dev_data/news.test', 'dev_data/hans.test', 'dev_data/euro.test']
+
+    if path.exists('results/results.json'):
+        with open('results/results.json', 'r') as f:
+            scores = json.load(f)
+    else:
+        with open('results/results.json', 'w') as f:
+            pass
+        scores = {}
+    model_base_name = path.splitext(model_binary_name.split('/')[1])[0]
+    print(' #######################', params['scoring'])
+
+    # heads = [int(x)  if len(params['head'])>0 else 0 for x in params['head']]
+    print('heads:', list(params['head']), 'backoff:',params['backoff'])
+
 
 
     training_time, size, perplexities = train(**params)
@@ -551,7 +572,7 @@ if __name__ == '__main__':
 
     ## Loading model takes time so we do it once in the begining
     # model_binary_name = 'models/trigram_p9.bin'
-    model = load_model(model_binary_name)
+    model,loading_time = load_model(model_binary_name)
 
     ref = "why does everything have to become such a big issue ?"
     sent_1 = '? everything big why to become does have such issue a'
@@ -567,53 +588,62 @@ if __name__ == '__main__':
     # print(evaluate([sent_4], [ref]))
     # print(evaluate([sent_1], [ref]))
     # print(evaluate([sent_2], [ref]))
-    for i in range(1,4):
-        # print('-p-'*20)
-        # sent = solver_full(model, sent_1,i,scoring= 'perplexity')
-        # print(evaluate([sent], [ref]))
-        print(f"i={i}")
-        print('-p0' * 20)
-        sent = solver_acc(model, sent_1, i, scoring='perplexity')
-        print(evaluate([sent], [ref]))
-
-        print('-p2' * 20)
-        sent = solver_acc_2(model, sent_1, i, scoring='perplexity')
-        print(evaluate([sent], [ref]))
+    # for i in range(1,4):
+    #     # print('-p-'*20)
+    #     # sent = solver_full(model, sent_1,i,scoring= 'perplexity')
+    #     # print(evaluate([sent], [ref]))
+    #     print(f"i={i}")
+    #     print('-p0' * 20)
+    #     sent = solver_acc(model, sent_1, i, scoring='perplexity')
+    #     print(evaluate([sent], [ref]))
+    #
+    #     print('-p2' * 20)
+    #     sent = solver_acc_2(model, sent_1, i, scoring='perplexity')
+    #     print(evaluate([sent], [ref]))
 
 
     # score = predict(model, test_file='dev_data/news.test', solve_func=solver, head_size=4)
 
-    test_files = ['dev_data/news.test', 'dev_data/hans.test', 'dev_data/euro.test' ]
 
-    if path.exists('results/results.json'):
-        with open('results/results.json', 'r') as f:
-            scores = json.load(f)
-    else:
-        with open('results/results.json', 'w') as f:
-            pass
-        scores = {}
-    model_base_name = path.splitext(model_binary_name.split('/')[1])[0]
-    print(' #######################',params['scoring'])
+
     for test_file in test_files:
-        for i in range(1,4):
-            test_file_base_name = path.splitext(test_file.split('/')[1])[0]
-            print('--'*20)
-            suffix = '-' if params['scoring']=='perplexity' else '-sc-'
-            model_version=f"KenLM-solver-acc2-head-{i}{suffix}{test_file_base_name}-{model_base_name}"
-            score = predict(model, test_file=test_file,solve_func=solver_acc_2,
-                            head_size=i,version=f"p{i}",verbose=0,
-                            evaluation_only=False,scoring=params['scoring'])
-            scores[model_version] = score
+        for b in params['backoff']:
+            for i in params['head']:
+                test_file_base_name = path.splitext(test_file.split('/')[1])[0]
+                suffix = '-' if params['scoring']=='perplexity' else '-sc-'
+                # print('--'*20)
+                # model_version=f"KenLM-solver-acc2-head-{i}{suffix}{test_file_base_name}-{model_base_name}"
+                # score = predict(model, test_file=test_file,solve_func=solver_acc_2,
+                #                 head_size=i,version=f"p{i}",verbose=0,
+                #                 evaluation_only=False,scoring=params['scoring'])
+                # scores[model_version] = score
 
-            print('-0'*20)
+                print('-0'*20)
 
-            model_version=f"KenLM-solver-acc3-head-{i}{suffix}{test_file_base_name}-{model_base_name}"
-            score = predict(model, test_file=test_file,solve_func=solver_acc_3,
-                            head_size=i,version=f"p0{i}",verbose=0,
-                            evaluation_only=False,scoring=params['scoring'])
-            scores[model_version]= score
-            with open('results/tmp.json', 'w') as f:
-                json.dump(scores, f, indent=3)
+                model_version=f"KenLM-solver-acc3-head-{i}-{b}-{suffix}{test_file_base_name}-{model_base_name}"
+                print('->'*5,model_version)
+                t = time.time()
+                score = predict(model, test_file=test_file,solve_func=solver_acc_3,
+                                head_size=i,version=f"p0{i}",verbose=0,
+                                evaluation_only=False,scoring=params['scoring'],backoff=b)
+                inference_time = time.time() - t
+                scores[model_version]= score
+                # training_time, size, perplexities
+                if training_time>0: scores[model_version]['training_time'] = round(training_time,2)
+                if size>0: scores[model_version]['model_size'] = round(size,2)
+                if perplexities>0: scores[model_version]['model_score'] = round(perplexities,2)
+                # loading_time
+                scores[model_version]['loading_time']= round(loading_time,2)
+                scores[model_version]['inference_time']= round(inference_time,2)
+
+
+                with open('results/tmp.json', 'w') as f:
+                    json.dump(scores, f, indent=3)
+                try:
+                    with open('results/results.json', 'w') as f:
+                        json.dump(scores, f, indent=3)
+                except:
+                    print('could not write to results.json')
     # print(scores)
     with open('results/results.json', 'w') as f:
         json.dump(scores, f, indent=3)

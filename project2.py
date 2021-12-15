@@ -22,19 +22,19 @@ def dev_file_analysis(file):
 
 def leng_distribution(df):
     a = len(df[df['length'] < 5])
-    b = len(df[(df['length'] >= 5) & (df['length'] < 10)])
-    c = len(df[(df['length'] >= 10) & (df['length'] < 15)])
-    d = len(df[(df['length'] >= 15) & (df['length'] < 20)])
-    e = len(df[(df['length'] >= 20) & (df['length'] < 25)])
-    f = len(df[(df['length'] >= 25) & (df['length'] < 30)])
-    g = len(df[(df['length'] >= 30) & (df['length'] < 35)])
-    h = len(df[(df['length'] >= 35) & (df['length'] < 40)])
-    i = len(df[(df['length'] >= 40) & (df['length'] < 45)])
-    j = len(df[(df['length'] >= 45) & (df['length'] < 50)])
-    k = len(df[df['length'] >= 50])
+    b = len(df[(df['length'] >= 5) & (df['length'] <= 10)])
+    c = len(df[(df['length'] > 10) & (df['length'] <= 15)])
+    d = len(df[(df['length'] > 15) & (df['length'] <= 20)])
+    e = len(df[(df['length'] > 20) & (df['length'] <= 25)])
+    f = len(df[(df['length'] > 25) & (df['length'] <= 30)])
+    g = len(df[(df['length'] > 30) & (df['length'] <= 35)])
+    h = len(df[(df['length'] > 35) & (df['length'] <= 40)])
+    i = len(df[(df['length'] > 40) & (df['length'] <= 45)])
+    j = len(df[(df['length'] > 45) & (df['length'] <= 50)])
+    k = len(df[df['length'] > 50])
 
     lengths_per_cat = [a, b, c, d, e, f, g, h, i, j, k]
-    categories = ["<5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", ">=50"]
+    categories = ["<5", "5-10", "11-15", "16-20", "21-25", "26-30", "31-35", "36-40", "41-45", "46-50", ">50"]
 
     return categories, lengths_per_cat
 
@@ -145,10 +145,10 @@ hans_file = dev_data_folder + 'hans.ref'
 
 def main():
     # train_data_analysis(train_data_folder)
-    #
-    # df = pd.read_csv('lengths_distribution.csv')
-    # df = df.drop(columns=['Unnamed: 0'])
-    # make_image_train_distribution(df, 'train')
+
+    df = pd.read_csv('lengths_distribution.csv')
+    df = df.drop(columns=['Unnamed: 0'])
+    make_image_train_distribution(df, 'train')
 
     dev_data_analysis(dev_data_folder)
 

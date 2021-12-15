@@ -1,26 +1,61 @@
-from transformers import BertGenerationTokenizer, BertGenerationDecoder, BertGenerationConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, top_k_top_p_filtering
 import torch
+from torch import nn
+from transformers import pipeline
 
 
-from transformers import BertGenerationTokenizer, BertGenerationEncoder
-import torch
+#
+# tokenizer = AutoTokenizer.from_pretrained("albert-v2-base")
+# model = AutoModelForCausalLM.from_pretrained("albert-v2-base")
 
-tokenizer = BertGenerationTokenizer.from_pretrained('google/bert_for_seq_generation_L-24_bbc_encoder')
-model = BertGenerationEncoder.from_pretrained('google/bert_for_seq_generation_L-24_bbc_encoder', return_dict=True)
 
-inputs = tokenizer("Hello, my dog is cute", return_tensors="pt")
-outputs = model(**inputs)
+ref = "why does everything have to become such a big issue ?"
+sent_1 = '? everything big why to become does have such issue a'
+sent_2 = "a big issue to have become such ? why does everything"
+sent_3 = "why does everything have to become such a big ? issue"
+sent_4 = "? why does everything have to become such a big issue"
 
-last_hidden_states = outputs.last_hidden_state
-print(last_hidden_states)
+sequence = f"why does"
+word = "everything"
+from random import randint
+from numpy import array
+from numpy import argmax
+from keras.utils import to_categorical
 
-# tokenizer = BertGenerationTokenizer.from_pretrained('google/bert_for_seq_generation_L-24_bbc_encoder')
-config = BertGenerationConfig.from_pretrained("google/bert_for_seq_generation_L-24_bbc_encoder")
-config.is_decoder = True
-model = BertGenerationDecoder.from_pretrained('google/bert_for_seq_generation_L-24_bbc_encoder', config=config)
+# generate a sequence of random integers
+def generate_sequence(length, n_unique):
+	return [randint(1, n_unique-1) for _ in range(length)]
 
-inputs = tokenizer("Hello, my dog is cute", return_tensors="pt")
-outputs = model(**inputs)
+# prepare data for the LSTM
+def get_dataset(n_in, n_out, cardinality, n_samples):
+	X1, X2, y = list(), list(), list()
+	for _ in range(n_samples):
+		# generate source sequence
+		source = generate_sequence(n_in, cardinality)
+		# define target sequence
+		target = source[:n_out]
+		target.reverse()
+		# create padded input target sequence
+		target_in = [0] + target[:-1]
+		# encode
+		src_encoded = to_categorical([source], num_classes=cardinality)
+		tar_encoded = to_categorical([target], num_classes=cardinality)
+		tar2_encoded = to_categorical([target_in], num_classes=cardinality)
+		# store
+		X1.append(src_encoded)
+		X2.append(tar2_encoded)
+		y.append(tar_encoded)
+	return array(X1), array(X2), array(y)
 
-prediction_logits = outputs.logits
-print(prediction_logits)
+# decode a one hot encoded string
+def one_hot_decode(encoded_seq):
+	return [argmax(vector) for vector in encoded_seq]
+
+# configure problem
+n_features = 50 + 1
+n_steps_in = 6
+n_steps_out = 3
+# generate a single source and target sequence
+X1, X2, y = get_dataset(n_steps_in, n_steps_out, n_features, 1)
+print(X1.shape, X2.shape, y.shape)
+print('X1=%s, X2=%s, y=%s' % (one_hot_decode(X1[0]), one_hot_decode(X2[0]), one_hot_decode(y[0])))

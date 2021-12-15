@@ -3,15 +3,7 @@ from tqdm import tqdm
 from os import listdir, system, path
 import random
 import numpy as np
-import argparse
-def get_args():
 
-    parser = argparse.ArgumentParser(description='draft')
-    parser.add_argument("-f", '--filter', type=str, help="Comma separated values of budgets", default="")
-    parser.add_argument("-n", '--nb', type=int, help="# files read",default=20)
-    parser.add_argument("-c", '--clean', action='store_true', help="remove clomuns",default=False)
-
-    return parser.parse_args()
 
 # train_data_folder = 'train_data/training-monolingual.tokenized.shuffled/'
 #
@@ -73,23 +65,7 @@ def lcstr_words(X, Y):
     # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
     return L[m][n]
 
-import pandas as pd
 
-def best_scores():
-    args = get_args()
-    scores = df = pd.read_json('results/results.json')
-    df = scores.T.sort_values(by=['bleu_score'],ascending=False)
-    #
-    df = df.reset_index()
-    df = df.rename(columns={"index": "model"})
-
-    for filter in args.filter.split(','):
-        df = df[df['model'].str.contains(filter)]
-    if args.clean:
-        df = df.drop(['avg_hamming' , 'avg_norm_hamming' , 'avg_LCSSeq', 'avg_LCSStr'], axis=1)
-    print(df.head(args.nb))
-
-best_scores()
 
 
 # This code is contributed by Nikhil Kumar Singh(nickzuck_007)
