@@ -10,6 +10,7 @@ import random
 from tqdm import tqdm
 import json
 import itertools
+from transformers_utils import GPT2
 
 folder_original = 'train_data/training-monolingual.tokenized.shuffled/'
 folder_short = 'train_data/preprocessed-short/'
@@ -536,15 +537,48 @@ if __name__ == '__main__':
     args = get_args()
     params = vars(args)
     print(params)
-    if args.folder == 'full':
-        folder = folder_full
-    elif args.folder == 'short':
-        folder = folder_short
+    print('heads:', list(params['head']), 'backoff:', params['backoff'])
+
+    if params['model_file'].count('/'):
+        if params['folder'] == 'full':
+            folder = folder_full
+        elif params['folder'] == 'short':
+            folder = folder_short
+        else:
+            folder = preprocess_folder(folder_original, args.nb,args.reprocess)
+        params['folder']= folder
+
+        model_file_name = f'{args.model_file}{args.nb}.arpa'
+        model_binary_name = f'{args.model_file}{args.nb}.bin'
+
+
+        model_base_name = path.splitext(model_binary_name.split('/')[1])[0]
+        print(' #######################', params['scoring'])
+
+        # heads = [int(x)  if len(params['head'])>0 else 0 for x in params['head']]
+
+
+
+
+        training_time, size, perplexities = train(**params)
+
+
+        # size = path.getsize(model_file_name) / (1024 * 1024)  # convert to MB
+        # score = test_training(model_file_name)
+        # print(f'\t Size: {size:.2f}MB\t Score: {mean(score):.2f}')
+
+        ## Loading model takes time so we do it once in the begining
+        # model_binary_name = 'models/trigram_p9.bin'
+        model,loading_time = load_model(model_binary_name)
+    elif  params['model_file'].lower() == 'gpt2':
+        model = GPT2()
+        model_base_name = 'gpt2'
+        if params['scoring'] != 'perplexity':
+            print('GPT 2 uses perplexity for scoring, switching to perplexity')
+            params['scoring'] = 'perplexity'
     else:
-        folder = preprocess_folder(folder_original, args.nb,args.reprocess)
-    params['folder']= folder
-    model_file_name = f'{args.model_file}{args.nb}.arpa'
-    model_binary_name = f'{args.model_file}{args.nb}.bin'
+        exit('Unknown model file')
+
 
     test_files = ['dev_data/news.test', 'dev_data/hans.test', 'dev_data/euro.test']
 
@@ -555,24 +589,6 @@ if __name__ == '__main__':
         with open('results/results.json', 'w') as f:
             pass
         scores = {}
-    model_base_name = path.splitext(model_binary_name.split('/')[1])[0]
-    print(' #######################', params['scoring'])
-
-    # heads = [int(x)  if len(params['head'])>0 else 0 for x in params['head']]
-    print('heads:', list(params['head']), 'backoff:',params['backoff'])
-
-
-
-    training_time, size, perplexities = train(**params)
-
-
-    # size = path.getsize(model_file_name) / (1024 * 1024)  # convert to MB
-    # score = test_training(model_file_name)
-    # print(f'\t Size: {size:.2f}MB\t Score: {mean(score):.2f}')
-
-    ## Loading model takes time so we do it once in the begining
-    # model_binary_name = 'models/trigram_p9.bin'
-    model,loading_time = load_model(model_binary_name)
 
     ref = "why does everything have to become such a big issue ?"
     sent_1 = '? everything big why to become does have such issue a'
@@ -619,8 +635,9 @@ if __name__ == '__main__':
                 # scores[model_version] = score
 
                 print('-0'*20)
+                model_suffix = 'GPT2' if 'gpt2' in params['model_file'] else 'KenLM'
 
-                model_version=f"KenLM-solver-acc3-head-{i}-{b}-{suffix}{test_file_base_name}-{model_base_name}"
+                model_version=f"{model_suffix}-solver-acc3-head-{i}-{b}-{suffix}{test_file_base_name}-{model_base_name}"
                 print('->'*5,model_version)
                 t = time.time()
                 score = predict(model, test_file=test_file,solve_func=solver_acc_3,

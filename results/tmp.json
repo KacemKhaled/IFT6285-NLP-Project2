@@ -2789,7 +2789,10 @@
       "avg_norm_LCSSeq": 0.5644,
       "avg_LCSStr": 4.413,
       "avg_norm_LCSStr": 0.3175,
-      "avg_pos_match": 0.1433
+      "avg_pos_match": 0.1433,
+      "model_size": 4127.61,
+      "loading_time": 118.99,
+      "inference_time": 3331.19
    },
    "KenLM-solver-acc3-head-5-1--sc-hans-trigram_op99": {
       "match": 0.028,
@@ -3120,5 +3123,33 @@
       "model_size": 4127.61,
       "loading_time": 118.99,
       "inference_time": 2983.64
+   },
+   "KenLM-solver-acc3-head-5-2--sc-news-trigram_op99": {
+      "match": 0.036,
+      "bleu_score": 35.7991,
+      "avg_hamming": 10.601,
+      "avg_norm_hamming": 0.1524,
+      "avg_LCSSeq": 8.733,
+      "avg_norm_LCSSeq": 0.5704,
+      "avg_LCSStr": 4.453,
+      "avg_norm_LCSStr": 0.3198,
+      "avg_pos_match": 0.1465,
+      "model_size": 4127.61,
+      "loading_time": 118.99,
+      "inference_time": 3793.15
+   },
+   "KenLM-solver-acc3-head-5-3--sc-news-trigram_op99": {
+      "match": 0.036,
+      "bleu_score": 36.0833,
+      "avg_hamming": 11.067,
+      "avg_norm_hamming": 0.1569,
+      "avg_LCSSeq": 8.819,
+      "avg_norm_LCSSeq": 0.5753,
+      "avg_LCSStr": 4.489,
+      "avg_norm_LCSStr": 0.323,
+      "avg_pos_match": 0.1521,
+      "model_size": 4127.61,
+      "loading_time": 118.99,
+      "inference_time": 5487.37
    }
 }

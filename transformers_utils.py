@@ -1,6 +1,6 @@
-# Source of the code :
+# Code inspired from :
 # https://huggingface.co/docs/transformers/perplexity#example-calculating-perplexity-with-gpt2-in-transformers
-# Modified slightly to fit our task
+# Modified to fit our task
 
 # Transformers installation
 # ! pip install transformers datasets
@@ -10,43 +10,59 @@
 from transformers import GPT2LMHeadModel, GPT2TokenizerFast
 import torch
 
-def load_gpt2():
-    device = 'cuda'
-    model_id = 'gpt2-large'
-    model = GPT2LMHeadModel.from_pretrained(model_id).to(device)
-    tokenizer = GPT2TokenizerFast.from_pretrained(model_id)
-    return model, tokenizer
+class GPT2:
+    def __init__(self):
+        self.model,self.tokenizer, self.device = self.load_gpt2()
 
-# Downloading: 100% 666/666 [00:00<00:00, 15.1kB/s]
-# Downloading: 100% 3.02G/3.02G [01:40<00:00, 33.6MB/s]
-# Downloading: 100% 0.99M/0.99M [00:01<00:00, 1.34MB/s]
-# Downloading: 100% 446k/446k [00:00<00:00, 617kB/s]
-# Downloading: 100% 1.29M/1.29M [00:01<00:00, 1.34MB/s]
 
-# # No need for this part
-# from datasets import load_dataset
-# test = load_dataset('wikitext', 'wikitext-2-raw-v1', split='test')
-# encodings = tokenizer('\n\n'.join(test['text']), return_tensors='pt')
+    def load_gpt2(self):
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        print('GPU Available:', torch.cuda.is_available())
+        model_id = 'gpt2'
+        model = GPT2LMHeadModel.from_pretrained(model_id).to(device)
+        tokenizer = GPT2TokenizerFast.from_pretrained(model_id)
+        return model, tokenizer, device
 
-def perplexity_gpt2(sent):
-  encodings = tokenizer(sent, return_tensors='pt')
-  max_length = model.config.n_positions
-  stride = 512
+    # Downloading: 100% 666/666 [00:00<00:00, 15.1kB/s]
+    # Downloading: 100% 3.02G/3.02G [01:40<00:00, 33.6MB/s]
+    # Downloading: 100% 0.99M/0.99M [00:01<00:00, 1.34MB/s]
+    # Downloading: 100% 446k/446k [00:00<00:00, 617kB/s]
+    # Downloading: 100% 1.29M/1.29M [00:01<00:00, 1.34MB/s]
 
-  nlls = []
-  for i in range(0, encodings.input_ids.size(1), stride):
-      begin_loc = max(i + stride - max_length, 0)
-      end_loc = min(i + stride, encodings.input_ids.size(1))
-      trg_len = end_loc - i    # may be different from stride on last loop
-      input_ids = encodings.input_ids[:,begin_loc:end_loc].to(device)
-      target_ids = input_ids.clone()
-      target_ids[:,:-trg_len] = -100
 
-      with torch.no_grad():
-          outputs = model(input_ids, labels=target_ids)
-          neg_log_likelihood = outputs[0] * trg_len
+    def perplexity(self,sent):
+        encodings = self.tokenizer(sent, return_tensors='pt')
+        max_length = self.model.config.n_positions
+        stride = 512
 
-      nlls.append(neg_log_likelihood)
+        nlls = []
+        for i in range(0, encodings.input_ids.size(1), stride):
+          begin_loc = max(i + stride - max_length, 0)
+          end_loc = min(i + stride, encodings.input_ids.size(1))
+          trg_len = end_loc - i    # may be different from stride on last loop
+          input_ids = encodings.input_ids[:,begin_loc:end_loc].to(self.device)
+          target_ids = input_ids.clone()
+          target_ids[:,:-trg_len] = -100
 
-  ppl = torch.exp(torch.stack(nlls).sum() / end_loc)
-  return ppl.tolist()
+          with torch.no_grad():
+              outputs = self.model(input_ids, labels=target_ids)
+              neg_log_likelihood = outputs[0] * trg_len
+
+          nlls.append(neg_log_likelihood)
+
+        ppl = torch.exp(torch.stack(nlls).sum() / end_loc)
+        return ppl.tolist()
+
+# gpt2 = GPT2()
+#
+# ref = "why does everything have to become such a big issue ?"
+# sent_1 = '? everything big why to become does have such issue a'
+# sent_2 = "a big issue to have become such ? why does everything"
+# sent_3 = "why does everything have to become such a big ? issue"
+# sent_4 = "? why does everything have to become such a big issue"
+#
+# print(gpt2.perplexity(ref))
+# print(gpt2.perplexity(sent_1))
+# print(gpt2.perplexity(sent_2))
+# print(gpt2.perplexity(sent_3))
+# print(gpt2.perplexity(sent_4))
