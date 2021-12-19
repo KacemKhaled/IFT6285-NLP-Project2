@@ -7,7 +7,8 @@
 # To install from source instead of the last release, comment the command above and uncomment the following one.
 # ! pip install git+https://github.com/huggingface/transformers.git
 
-from transformers import GPT2LMHeadModel, GPT2TokenizerFast
+from transformers import AutoModelWithLMHead, AutoTokenizer,AutoModelForSeq2SeqLM,\
+    GPT2LMHeadModel, GPT2TokenizerFast, BertLMHeadModel, BertTokenizerFast
 import torch
 
 class GPT2:
@@ -18,7 +19,7 @@ class GPT2:
     def load_gpt2(self):
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         print('GPU Available:', torch.cuda.is_available())
-        model_id = 'gpt2'
+        model_id ='gpt2' # around 500 MB
         model = GPT2LMHeadModel.from_pretrained(model_id).to(device)
         tokenizer = GPT2TokenizerFast.from_pretrained(model_id)
         return model, tokenizer, device
@@ -33,7 +34,7 @@ class GPT2:
     def perplexity(self,sent):
         encodings = self.tokenizer(sent, return_tensors='pt')
         max_length = self.model.config.n_positions
-        stride = 512
+        stride = 128
 
         nlls = []
         for i in range(0, encodings.input_ids.size(1), stride):
@@ -53,8 +54,8 @@ class GPT2:
         ppl = torch.exp(torch.stack(nlls).sum() / end_loc)
         return ppl.tolist()
 
-# gpt2 = GPT2()
-#
+gpt2 = GPT2()
+
 # ref = "why does everything have to become such a big issue ?"
 # sent_1 = '? everything big why to become does have such issue a'
 # sent_2 = "a big issue to have become such ? why does everything"

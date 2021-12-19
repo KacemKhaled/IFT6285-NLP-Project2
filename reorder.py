@@ -1,3 +1,4 @@
+import enum
 from os import listdir, system, path, mkdir
 import time
 import kenlm
@@ -26,16 +27,21 @@ model_file = 'models/bigram'
 def get_args():
 
     parser = argparse.ArgumentParser(description='KenLM')
-    parser.add_argument("-f", '--folder', type=str, help="the folder to use",choices=['short','full', 'original'], default='full')
-    parser.add_argument("-s", '--scoring', type=str, help="the score to use",choices=['perplexity','score'], default='perplexity')
+    parser.add_argument("-f", '--folder', type=str, help="the folder to use",choices=['short','full', 'original', 'original_preprocess'], default='full')
+    parser.add_argument("-s", '--scoring', type=str, help="the score to use", choices=['perplexity', 'score'],
+                        default='perplexity')
     parser.add_argument("-m", '--model_file', type=str, help="the model to use", default='models/bigram')
-    parser.add_argument("-v", '--verbosity', type=int, help="increase output verbosity", default=0)
+    parser.add_argument('--solver', type=str, help="the solver to use: acc or full or lookup",choices=['acc', 'full','lookup'], default='acc')
+    parser.add_argument("-j", '--json_file_results', type=str, help="json file for results", default='results/results_final.json')
+    parser.add_argument("-v", '--verbose', type=int, help="increase output verbosity", default=0)
     parser.add_argument("-n", '--nb', type=int, help="# files read",default=2)
-    parser.add_argument("-d", '--head', nargs='+',type=int, help="head size, default : nothing",default=[0])
-    parser.add_argument("-b", '--backoff', nargs='+',type=int, help="backoff, default: 1",default=[0])
+    parser.add_argument("-d", '--head_list', nargs='+',type=int, help="head size, default : nothing",default=[0])
+    parser.add_argument("-b", '--backoff_list', nargs='+',type=int, help="backoff_list, default: 1",default=[0])
     parser.add_argument("-o", '--order', type=int, help="2: bigram, 3: trigram",default=2)
-    parser.add_argument("-t", '--retrain', action='store_true', help="force retraining",default=False)
+    parser.add_argument("-r", '--retrain', action='store_true', help="force retraining",default=False)
     parser.add_argument("-p", '--reprocess', action='store_true', help="force reprocessing",default=False)
+    parser.add_argument("-t", '--brute_force_tail',type=str, choices=['0', 't','x'], help="brute force tail",default=False)
+    parser.add_argument( '--test', action='store_true', help="test the language model",default=False)
 
     return parser.parse_args()
 
@@ -46,41 +52,41 @@ def find_permutations(seq,r):
     :param r (int): length of sub-sequence: (1,2,3)
     :return permutations (List):
     """
-    permutations = []
-    n = range(len(seq))
-    if r==3:
-        permutations = [[seq[i],seq[j],seq[k]] for i in n for j in n for k in n if i != j and i != k and j != k]
-    elif r==2:
-        permutations = [[seq[i], seq[j]] for i in n for j in n if i != j]
-    elif r==1:
-        permutations = [[t] for t in seq]
-    else:
-        permutations = [list(t) for t in itertools.permutations(seq,r)]
+    # permutations = []
+    # n = range(len(seq))
+    # if r==3:
+    #     permutations = [[seq[i],seq[j],seq[k]] for i in n for j in n for k in n if i != j and i != k and j != k]
+    # elif r==2:
+    #     permutations = [[seq[i], seq[j]] for i in n for j in n if i != j]
+    # elif r==1:
+    #     permutations = [[t] for t in seq]
+    # else:
+    #     permutations = [list(t) for t in itertools.permutations(seq,r)]
 
-    return permutations
+    return [list(t) for t in itertools.permutations(seq,r)] # permutations
 
 
-def solver_full(model, sentence,head_size = 1,scoring='perplexity',verbose=0,backoff=0):
+def solver_full(model, sentence,head = 1,scoring='perplexity',verbose=0,backoff=0,brute_force_tail=False):
     """
     Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
     trigram/bigram for scoring we assume that sequences are longer than 3 words
 
     :param model (kenlm model):
     :param sentence str:
-    :param head_size int: number of words in the starting head of a sentence
+    :param head int: number of words in the starting head of a sentence
     :return: str
     """
     tokens = sentence.split(' ')
-    permutations = itertools.permutations(tokens,head_size)
-    if verbose:
-        print(f"Found {len(permutations)} permutations with subsequence length {head_size} from sequence length: {len(tokens)}")
+    permutations = itertools.permutations(tokens,head)
+    if verbose>0:
+        print(f"Found {len(permutations)} permutations with subsequence length {head} from sequence length: {len(tokens)}")
     best_score = 10000000 #TODO -inf if score else +inf if perplex
     best_sequence = []
     t = time.time()
     for p in permutations:
         p = list(p)
         toks = tokens[:]
-        for i in range(head_size):
+        for i in range(head):
             toks.remove(p[i])
         new_sequence = p+toks
         if scoring == 'perplexity':
@@ -92,7 +98,7 @@ def solver_full(model, sentence,head_size = 1,scoring='perplexity',verbose=0,bac
             best_score = score
             best_sequence = new_sequence[:]
     tokens = best_sequence[:]
-    i=head_size
+    i=head
     while i < len(tokens):
         best_score = 10000000 ##TODO -inf if score else +inf if perplex
         best_candidate = "UNK"
@@ -107,15 +113,15 @@ def solver_full(model, sentence,head_size = 1,scoring='perplexity',verbose=0,bac
                 best_score = score
                 best_sequence = new_sequence[:]
         i+=1
-    if verbose: print(f"Prediction time: {time.time()-t:e}s")
+    if verbose>0: print(f"Prediction time: {time.time()-t:e}s")
 
     result = " ".join(best_sequence)
-    if verbose: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
+    if verbose>0: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
           f"{len(result.split())} words\t{len(result)} caracters:\t{result} ")
     return result
 
 
-def solver_acc(model, sentence, head_size = 1,scoring='perplexity',verbose=0,backoff=0):
+def solver_acc(model, sentence, head = 1,scoring='perplexity',verbose=0,backoff=0):
     """
     Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
     trigram/bigram for scoring
@@ -126,9 +132,9 @@ def solver_acc(model, sentence, head_size = 1,scoring='perplexity',verbose=0,bac
     :return: str
     """
     tokens = sentence.split()
-    permutations = find_permutations(tokens,head_size)
-    if verbose:
-        print(f"Found {len(permutations)} permutations with subsequence length {head_size} from sequence length: {len(tokens)}")
+    permutations = find_permutations(tokens,head)
+    if verbose>2:
+        print(f"Found {len(permutations)} permutations with subsequence length {head} from sequence length: {len(tokens)}")
     best_score = 10000000
     best_sequence = []
     t = time.time()
@@ -142,10 +148,10 @@ def solver_acc(model, sentence, head_size = 1,scoring='perplexity',verbose=0,bac
             best_score = score
             best_sequence = seq[:]
     try:
-        assert len(best_sequence) == head_size
+        assert len(best_sequence) == head
     except:
-        exit(f"Length mismatch {len(best_sequence) , head_size} \n-tokens: {tokens}\n-best_sequence: {best_sequence}")
-    for i in range(head_size):
+        exit(f"Length mismatch {len(best_sequence) , head} \n-tokens: {tokens}\n-best_sequence: {best_sequence}")
+    for i in range(head):
         tokens.remove(best_sequence[i])
     while tokens:
         best_score = 10000000 #TODO -inf if score else +inf if perplex
@@ -163,15 +169,15 @@ def solver_acc(model, sentence, head_size = 1,scoring='perplexity',verbose=0,bac
         best_sequence.append(best_candidate)
         tokens.remove(best_candidate)
     # print(f"Loading time: {loading_time:.2f}s\tPrediction time: {time.time()-t:e}s")
-    if verbose: print(f"Prediction time: {time.time() - t:e}s")
+    if verbose>0: print(f"Prediction time: {time.time() - t:e}s")
     result = " ".join(best_sequence)
-    if verbose: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
+    if verbose>0: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
           f"{len(result.split())} words\t{len(result)} caracters:\t{result} ")
     return result
 
 
 
-def solver_acc_2(model, sentence, head_size = 1, scoring='perplexity',verbose=0,backoff=0):
+def solver_acc_2(model, sentence, head = 1, scoring='perplexity',verbose=0,backoff=0):
     """
     Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
     trigram/bigram for scoring
@@ -186,11 +192,11 @@ def solver_acc_2(model, sentence, head_size = 1, scoring='perplexity',verbose=0,
     while tokens:
         temp = final_sequence[:]
         if len(tokens) < 8:
-            head_size = 7
-        permutations = find_permutations(tokens,min(head_size,len(tokens)))
-        # permutations = itertools.permutations(tokens,min(head_size,len(tokens)))
-        if verbose:
-            print(f"Found {len(permutations)} permutations with subsequence length {head_size} from sequence length: {len(tokens)}")
+            head = 7
+        permutations = find_permutations(tokens,min(head,len(tokens)))
+        # permutations = itertools.permutations(tokens,min(head,len(tokens)))
+        if verbose>0:
+            print(f"Found {len(permutations)} permutations with subsequence length {head} from sequence length: {len(tokens)}")
         best_score = 10000000
         best_sequence = []
         t = time.time()
@@ -208,14 +214,15 @@ def solver_acc_2(model, sentence, head_size = 1, scoring='perplexity',verbose=0,
         final_sequence.extend(best_sequence)
 
     # print(f"Loading time: {loading_time:.2f}s\tPrediction time: {time.time()-t:e}s")
-    if verbose: print(f"Prediction time: {time.time() - t:e}s")
+    if verbose>0: print(f"Prediction time: {time.time() - t:e}s")
     result = " ".join(final_sequence)
-    if verbose: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
+    if verbose>0: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
           f"{len(result.split())} words\t{len(result)} caracters:\t{result} ")
     return result
 
 
-def solver_acc_3(model, sentence, head_size = 1, scoring='perplexity',verbose=0,backoff=1):
+def solver_full_3(model, sentence, head,
+                 scoring,verbose,backoff,brute_force_tail):
     """
     Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
     trigram/bigram for scoring
@@ -227,16 +234,91 @@ def solver_acc_3(model, sentence, head_size = 1, scoring='perplexity',verbose=0,
     """
     tokens = sentence.split()
     final_sequence = []
+    skips = 0
+    bt=0
     while tokens:
         temp = final_sequence[:]
-        if len(tokens) < 8:
-            head_size = 7
-        # elif len(tokens) < 10:
-        #     head_size = 5
-        permutations = find_permutations(tokens,min(head_size,len(tokens)))
-        if verbose:
-            print(f"Found {len(permutations)} permutations with subsequence length {head_size} from sequence length: {len(tokens)}")
-        best_score = 10000000
+        if len(tokens) < 8 and brute_force_tail >= 't':
+            head = 7
+            bt+=1
+        elif len(tokens) < 10 and brute_force_tail=='x':
+            head = 5
+            bt+=1
+        r = min(head, len(tokens))
+        permutations = find_permutations(tokens,r)
+        if verbose>0:
+            print(f"\nFound {len(permutations)} permutations with subsequence length {r} from sequence length: {len(tokens)}")
+            # print(f" {len(permutations)} permutations : {permutations} from sequence length: {len(tokens)}: {tokens}")
+        best_score = 100000000
+        best_sequence = []
+        t = time.time()
+        for seq in permutations:
+            toks = tokens[:]
+            for i in range(r):
+                toks.remove(seq[i])
+            # the_rest = tokens[r:]
+            new_sequence = final_sequence[:] + seq + toks
+            if scoring == 'perplexity':
+                score = model.perplexity(" ".join(new_sequence))
+            elif scoring == 'score':
+                score = - model.score(" ".join(new_sequence), bos=False, eos=False) # not the enf of sentence
+            if verbose>0: print(" ".join(temp+seq), score)
+            if verbose>0: print('best_score', best_score)
+            if score < best_score:
+                best_score = score
+                best_sequence = seq[:]
+        # else:
+        #     if best_score == 100000000:
+        #         # best_sequence = permutations[0]
+        #         best_sequence = random.choice(permutations)
+        #         skips+=1
+        if len(best_sequence) > backoff and len(best_sequence) < len(tokens):
+            new_range = len(best_sequence)-backoff
+        else:
+            new_range = len(best_sequence)
+        # print(new_range)
+        for i in range(new_range):
+            tokens.remove(best_sequence[i])
+        final_sequence.extend(best_sequence[:new_range])
+
+    # print(f"Loading time: {loading_time:.2f}s\tPrediction time: {time.time()-t:e}s")
+    if verbose>0: print(f"Prediction time: {time.time() - t:e}s")
+    result = " ".join(final_sequence)
+    if verbose>0: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
+          f"{len(result.split())} words\t{len(result)} caracters:\t{result} ")
+    return result,bt
+
+
+
+def solver_acc_3(model, sentence, head,
+                 scoring,verbose,backoff,brute_force_tail):
+    """
+    Find the most probable ordering of a sequence e of tokens using a greedy search with kenlm
+    trigram/bigram for scoring
+    we assume that sequences are longer than 3 words
+
+    :param model (kenlm model):
+    :param sentence str:
+    :return: str
+    """
+    tokens = sentence.split()
+    final_sequence = []
+    skips = 0
+    bt=0
+    while tokens:
+        temp = final_sequence[:]
+        if len(tokens) < 8 and brute_force_tail >= 't':
+            head = 7
+            bt+=1
+        elif len(tokens) < 10 and brute_force_tail=='x':
+            head = 5
+            bt+=1
+        subsequence_length = min(head, len(tokens))
+        permutations = find_permutations(tokens,subsequence_length)
+        if verbose>0:
+            print(f"\nFound {len(permutations)} permutations with subsequence length {subsequence_length} from sequence length: {len(tokens)}")
+            # print(f" {len(permutations)} permutations : {permutations} from sequence length: {len(tokens)}: {tokens}")
+        best_score = 100000000
         best_sequence = []
         t = time.time()
         for seq in permutations:
@@ -244,22 +326,47 @@ def solver_acc_3(model, sentence, head_size = 1, scoring='perplexity',verbose=0,
                 score = model.perplexity(" ".join(temp+seq))
             elif scoring == 'score':
                 score = - model.score(" ".join(temp+seq), bos=False, eos=False) # not the enf of sentence
-            # print(seq,score)
+            if verbose>0: print(" ".join(temp+seq), score)
+            if verbose>0: print('best_score', best_score)
             if score < best_score:
                 best_score = score
                 best_sequence = seq[:]
-        new_range = len(best_sequence)-backoff if len(best_sequence)>backoff else len(best_sequence)
+        # else:
+        #     if best_score == 100000000:
+        #         # best_sequence = permutations[0]
+        #         best_sequence = random.choice(permutations)
+        #         skips+=1
+        if len(best_sequence) > backoff and len(best_sequence) < len(tokens):
+            new_range = len(best_sequence)-backoff
+        else:
+            new_range = len(best_sequence)
+        # print(new_range)
         for i in range(new_range):
             tokens.remove(best_sequence[i])
         final_sequence.extend(best_sequence[:new_range])
 
     # print(f"Loading time: {loading_time:.2f}s\tPrediction time: {time.time()-t:e}s")
-    if verbose: print(f"Prediction time: {time.time() - t:e}s")
+    if verbose>0: print(f"Prediction time: {time.time() - t:e}s")
     result = " ".join(final_sequence)
-    if verbose: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
+    if verbose>0: print(f"{len(sentence.split())} words\t{len(sentence)} caracters:\t{sentence}\n"
           f"{len(result.split())} words\t{len(result)} caracters:\t{result} ")
-    return result
+    return result,bt
 
+def lookup_construct_ref(dict,folder=folder_full):
+    files = [file for file in listdir(folder) if path.splitext(file)[1]=='.ref']
+    # dict = {}
+    for file in tqdm(files):
+        with open(folder+file,encoding='utf-8') as ref:
+            for sent in ref.read().split('\n')[:-1]:
+                dict[" ".join(sorted(sent.split(' ')))] = sent
+    return dict
+            
+def solver_lookup(sentence,dict):
+    sorted_sent = " ".join(sorted(sentence.split(' ')))
+    if sorted_sent in dict:
+        return dict[sorted_sent], 1
+    else:
+        return sentence, 0
 
 
 def dummy_solve(sentence):
@@ -396,10 +503,10 @@ def evaluate_files(dev_file,ref_file):
         open(dev_file,encoding='utf-8') as dev:
         sent_ref = ref.read().split('\n')[:-1]
         sent_dev = dev.read().split('\n')[:-1]
-        # print(sent_ref[:2])
-        # print(sent_ref[-1])
-        # print(sent_dev[:2])
-        # print(sent_dev[-1])
+        print(sent_ref[:2])
+        print(sent_ref[-1])
+        print(sent_dev[:2])
+        print(sent_dev[-1])
 
         len_sentence = len(sent_ref)
         assert len(sent_ref) == len(sent_dev)
@@ -409,24 +516,52 @@ def evaluate_files(dev_file,ref_file):
     return metrics
 
 
-
-def predict(model,test_file,solve_func,head_size,version="",
-            verbose=0,evaluation_only=False,scoring='perplexity',backoff=0):
+def predict_lookup(test_file,version="",
+            evaluation_only=False,verbose=0,dict={}):
     dev_file = path.splitext(test_file)[0]+str(version)+'.dev'
     ref_file = path.splitext(test_file)[0]+'.ref'
     print(test_file,dev_file,ref_file)
-
+    all_found = 0
     if not evaluation_only:
         with open(test_file, encoding='utf-8') as test,\
                 open(dev_file,'w',encoding='utf-8') as dev:
             sentences = test.read().split('\n')
             for sent in tqdm(sentences):
                 if sent != "":
-                    prediction = solve_func(model, sent, head_size,scoring,verbose=verbose,backoff=backoff)
+                    prediction, found = solver_lookup(sent,dict)
+                    all_found+=found
+                    if verbose<0:
+                        if found: print(f"found {found} sentence: {sent}")
                     dev.write(prediction+'\n')
                     dev.flush()
     score = evaluate_files(ref_file, dev_file)
     print(version,score)
+    print(f"all_found: {all_found}")
+    return score
+
+def predict(model,test_file,solve_func,version="",
+            evaluation_only=False,head=1,scoring='perplexity',verbose=0,backoff=0,brute_force_tail='0'):
+    dev_file = path.splitext(test_file)[0]+str(version)+'.dev'
+    ref_file = path.splitext(test_file)[0]+'.ref'
+    print(test_file,dev_file,ref_file)
+    all_skips = []
+    if not evaluation_only:
+        with open(test_file, encoding='utf-8') as test,\
+                open(dev_file,'w',encoding='utf-8') as dev:
+            sentences = test.read().split('\n')
+            for sent in tqdm(sentences):
+                if sent != "":
+                    prediction, skips = solve_func(model, sent,
+                                                   head,scoring,verbose=verbose,backoff=backoff,
+                                                   brute_force_tail=brute_force_tail)
+                    if skips: all_skips.append(skips)
+                    if verbose<0:
+                        if skips: print(f"skipped {skips} choices")
+                    dev.write(prediction+'\n')
+                    dev.flush()
+    score = evaluate_files(ref_file, dev_file)
+    print(version,score)
+    print(f"all_skips: {len(all_skips)},Total: {sum(all_skips)}")
     return score
 
 
@@ -471,18 +606,19 @@ def test_training(model_file, folder_test=folder_test):
     # files = listdir(folder_test)
     test_file = files[0]
     with open(folder_test+test_file, 'r',encoding="utf8") as f:
+        t= time.time()
         while i < 1000:
             line = f.readline().strip()
             # perplex.append(model.score(line, bos = True, eos = True))
             if 5<=len(line.split())<=25:
                 perplex.append(model.perplexity(line))
                 i+=1
-    f.close()
-    return perplex
+    
+    return mean(perplex),(time.time()-t)/1000
 
 def train(model_file, folder,order=2,nb=9,test=False,**params):
-    model_file_name = f'{model_file}{nb}.arpa'
-    model_binary_name = f'{model_file}{nb}.bin'
+    model_file_name = f'{model_file}-{nb}-{folder[-4:-1]}.arpa'
+    model_binary_name = f'{model_file}-{nb}-{folder[-4:-1]}.bin'
     exist = path.exists(model_file_name)
     print(f"Model {model_binary_name}\tfound : {exist}, force retrain: {params['retrain']}")
 
@@ -518,12 +654,21 @@ def train(model_file, folder,order=2,nb=9,test=False,**params):
         t=0
     if test:
         size = path.getsize(model_binary_name) / (1024*1024) # convert to MB
-        score = test_training(model_binary_name)
-        print(f'Time: {t:.2f}s\t Size: {size:.2f}MB\t Score: {mean(score):.2f}')
-        return t, size, score
+        score,qr_time = test_training(model_binary_name)
+        print(f'Time: {t:.2f}s\t Size: {size:.2f}MB\t Score: {score:.2f}, Query time: {qr_time:.2f}')
+        return t, size, score, qr_time
     else:
         size = path.getsize(model_binary_name) / (1024 * 1024)
-        return -1, size, -1
+        return -1, size, -1, -1
+def load_or_create_json(file):
+    if path.exists(file):
+        with open(file, 'r') as f:
+            scores = json.load(f)
+    else:
+        with open(file, 'w') as f:
+            pass
+        scores = {}
+    return scores
 
 def load_model(model_binary_name):
     t = time.time()
@@ -537,30 +682,33 @@ if __name__ == '__main__':
     args = get_args()
     params = vars(args)
     print(params)
-    print('heads:', list(params['head']), 'backoff:', params['backoff'])
+    print('heads:', list(params['head_list']), 'backoff_list:', params['backoff_list'])
 
     if params['model_file'].count('/'):
         if params['folder'] == 'full':
             folder = folder_full
         elif params['folder'] == 'short':
             folder = folder_short
+        elif params['folder'] == 'original':
+            folder = folder_original
         else:
             folder = preprocess_folder(folder_original, args.nb,args.reprocess)
+            print(folder)
         params['folder']= folder
 
-        model_file_name = f'{args.model_file}{args.nb}.arpa'
-        model_binary_name = f'{args.model_file}{args.nb}.bin'
+        model_file_name = f'{params["model_file"]}-{params["nb"]}-{params["folder"][-4:-1]}.arpa'
+        model_binary_name = f'{params["model_file"]}-{params["nb"]}-{params["folder"][-4:-1]}.bin'
 
 
         model_base_name = path.splitext(model_binary_name.split('/')[1])[0]
         print(' #######################', params['scoring'])
 
-        # heads = [int(x)  if len(params['head'])>0 else 0 for x in params['head']]
+        # heads = [int(x)  if len(params['head_list'])>0 else 0 for x in params['head_list']]
 
 
 
 
-        training_time, size, perplexities = train(**params)
+        training_time, size, perplexities, qr_time = train(**params)
 
 
         # size = path.getsize(model_file_name) / (1024 * 1024)  # convert to MB
@@ -577,19 +725,21 @@ if __name__ == '__main__':
             print('GPT 2 uses perplexity for scoring, switching to perplexity')
             params['scoring'] = 'perplexity'
     else:
-        exit('Unknown model file')
+        print('Unknown model file')
+        model_base_name = 'lookup'
+        params['scoring'] = 'find'
 
 
-    test_files = ['dev_data/news.test', 'dev_data/hans.test', 'dev_data/euro.test']
-
-    if path.exists('results/results.json'):
-        with open('results/results.json', 'r') as f:
-            scores = json.load(f)
-    else:
-        with open('results/results.json', 'w') as f:
-            pass
-        scores = {}
-
+    test_files = ['dev_data/news.test', 'dev_data/hans.test', 'dev_data/euro.test','dev_data/projet2-fic.txt']
+    results_file = params['json_file_results']
+    # if path.exists(results_file):
+    #     with open(results_file, 'r') as f:
+    #         scores = json.load(f)
+    # else:
+    #     with open(results_file, 'w') as f:
+    #         pass
+    #     scores = {}
+    scores = load_or_create_json(results_file)
     ref = "why does everything have to become such a big issue ?"
     sent_1 = '? everything big why to become does have such issue a'
     sent_2 = "a big issue to have become such ? why does everything"
@@ -618,53 +768,82 @@ if __name__ == '__main__':
     #     print(evaluate([sent], [ref]))
 
 
-    # score = predict(model, test_file='dev_data/news.test', solve_func=solver, head_size=4)
+    # score = predict(model, test_file='dev_data/news.test', solve_func=solver, head=4)
 
-
-
-    for test_file in test_files:
-        for b in params['backoff']:
-            for i in params['head']:
-                test_file_base_name = path.splitext(test_file.split('/')[1])[0]
-                suffix = '-' if params['scoring']=='perplexity' else '-sc-'
-                # print('--'*20)
-                # model_version=f"KenLM-solver-acc2-head-{i}{suffix}{test_file_base_name}-{model_base_name}"
-                # score = predict(model, test_file=test_file,solve_func=solver_acc_2,
-                #                 head_size=i,version=f"p{i}",verbose=0,
-                #                 evaluation_only=False,scoring=params['scoring'])
-                # scores[model_version] = score
-
-                print('-0'*20)
-                model_suffix = 'GPT2' if 'gpt2' in params['model_file'] else 'KenLM'
-
-                model_version=f"{model_suffix}-solver-acc3-head-{i}-{b}-{suffix}{test_file_base_name}-{model_base_name}"
-                print('->'*5,model_version)
-                t = time.time()
-                score = predict(model, test_file=test_file,solve_func=solver_acc_3,
-                                head_size=i,version=f"p0{i}",verbose=0,
-                                evaluation_only=False,scoring=params['scoring'],backoff=b)
-                inference_time = time.time() - t
-                scores[model_version]= score
-                # training_time, size, perplexities
-                if training_time>0: scores[model_version]['training_time'] = round(training_time,2)
-                if size>0: scores[model_version]['model_size'] = round(size,2)
-                if perplexities>0: scores[model_version]['model_score'] = round(perplexities,2)
-                # loading_time
-                scores[model_version]['loading_time']= round(loading_time,2)
-                scores[model_version]['inference_time']= round(inference_time,2)
-
-
-                with open('results/tmp.json', 'w') as f:
-                    json.dump(scores, f, indent=3)
-                try:
-                    with open('results/results.json', 'w') as f:
+    if 'lookup' in params['solver']:
+        # dict_file_name = 'results/dict.json'
+        # dict_sent = load_or_create_json(dict_file_name)
+        # if len(dict_sent) ==0:
+        dict_sent = {}
+        dict_sent = lookup_construct_ref(dict_sent)
+    for test_file in test_files[3:]:
+        for b in params['backoff_list']:
+            for i in params['head_list']:
+                if b<i:
+                    test_file_base_name = path.splitext(test_file.split('/')[1])[0]
+                    suffix = '-pr-' if params['scoring']=='perplexity' else '-sc-'
+                    suffix = params['brute_force_tail'] + suffix
+                    # print('--'*20)
+                    # model_version=f"KenLM-acc2-head-{i}{suffix}{test_file_base_name}-{model_base_name}"
+                    # score = predict(model, test_file=test_file,solve_func=solver_acc_2,
+                    #                 head=i,version=f"p{i}",verbose=0,
+                    #                 evaluation_only=False,scoring=params['scoring'])
+                    # scores[model_version] = score
+    
+                    print('-0'*20)
+                    model_suffix = 'GPT2' if 'gpt2' in params['model_file'] else 'KenLM'
+    
+                    model_version=f"{model_suffix}-{params['solver']}3-head-{i}-{b}-{suffix}{test_file_base_name}-{model_base_name}"
+                    print('->'*5,model_version)
+                    t = time.time()
+                    # predict(model, test_file, solve_func, version="",
+                    #         evaluation_only=False, head=1, scoring='perplexity', verbose=0, backoff=0)
+                    if 'acc' in params['solver']:
+                        solve_func = solver_acc_3
+                    elif 'full' in params['solver']:
+                        solve_func = solver_full_3
+                    elif 'lookup' in params['solver']:
+                        
+                        solve_func = solver_lookup
+                        score = predict_lookup( test_file=test_file,
+                                    evaluation_only=False,
+                                    version=f"{model_version}",verbose=params['verbose'])
+                    else:
+                        s = params['solver']
+                        print(f'Undefined solver function: {s}')
+                        exit()
+                    if params['solver']!='lookup':
+                        score = predict(model, test_file=test_file,
+                                        solve_func=solve_func,
+                                        evaluation_only=False,
+                                        version=f"{model_version}",
+                                        head=i,verbose=params['verbose'],
+                                        scoring=params['scoring'],backoff=b,
+                                        brute_force_tail=params['brute_force_tail'])
+                    execution_time = time.time() - t
+                    scores[model_version]= score
+                    # training_time, size, perplexities
+                    if params['model_file'].count('/'):
+                        if training_time>0: scores[model_version]['training_time'] = round(training_time,2)
+                        if size>0: scores[model_version]['model_size'] = round(size,2)
+                        if perplexities>0: scores[model_version]['model_score'] = round(perplexities,2)
+                        if qr_time>0: scores[model_version]['qr_time'] = round(qr_time,2)
+                        # loading_time
+                        scores[model_version]['loading_time']= round(loading_time,2)
+                    scores[model_version]['execution_time']= round(execution_time,2)
+    
+    
+                    with open('results/tmp.json', 'w') as f:
                         json.dump(scores, f, indent=3)
-                except:
-                    print('could not write to results.json')
+                    try:
+                        with open(results_file, 'w') as f:
+                            json.dump(scores, f, indent=3)
+                    except:
+                        print(f'could not write to {results_file}')
     # print(scores)
-    with open('results/results.json', 'w') as f:
+    with open(results_file, 'w') as f:
         json.dump(scores, f, indent=3)
 
-    # predict(model, test_file='dev_data/news.test',solve_func=solver(head_size=1))
-    # predict(model, test_file='dev_data/news.test',solve_func=solver(head_size=2))
-    # predict(model, test_file='dev_data/news.test',solve_func=solver(head_size=3))
+    # predict(model, test_file='dev_data/news.test',solve_func=solver(head=1))
+    # predict(model, test_file='dev_data/news.test',solve_func=solver(head=2))
+    # predict(model, test_file='dev_data/news.test',solve_func=solver(head=3))

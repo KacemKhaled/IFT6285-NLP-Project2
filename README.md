@@ -21,6 +21,7 @@ python reorder.py -f full -b 99 -m models/bigram -o 2
 python reorder.py -f full -b 99 -m models/trigram -o 3
 # Train kenlm model trigram on 99 files and build the binary files head=3 backoff=1 scoring=score
 python reorder.py -f original -n 99 -m models/trigram_op -o 3  -s score -b 1  -d 3
+python reorder.py -f original -n 99 -m gpt2 -o 3  -s score -b 0  -d 1
 # Show results example:
 python show_results.py -n 30 -c -f news trigram
 

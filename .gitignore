@@ -132,3 +132,5 @@ lengths_distribution.csv
 models/
 train_data/*
 dev_data/*
+
+.history/*

@@ -1,0 +1,38 @@
+{
+   "KenLM-lookup3-head-3-0-0-sc-news-lookup": {
+      "match": 0.0,
+      "bleu_score": 4.1911,
+      "avg_hamming": 7.256,
+      "avg_norm_hamming": 0.0886,
+      "avg_LCSSeq": 6.015,
+      "avg_norm_LCSSeq": 0.3877,
+      "avg_LCSStr": 1.777,
+      "avg_norm_LCSStr": 0.1265,
+      "avg_pos_match": 0.078,
+      "execution_time": 0.65
+   },
+   "KenLM-lookup3-head-3-0-0-sc-hans-lookup": {
+      "match": 0.0,
+      "bleu_score": 4.0865,
+      "avg_hamming": 6.801,
+      "avg_norm_hamming": 0.1045,
+      "avg_LCSSeq": 5.516,
+      "avg_norm_LCSSeq": 0.4053,
+      "avg_LCSStr": 1.747,
+      "avg_norm_LCSStr": 0.1443,
+      "avg_pos_match": 0.0955,
+      "execution_time": 0.51
+   },
+   "KenLM-lookup3-head-3-0-0-sc-euro-lookup": {
+      "match": 0.0,
+      "bleu_score": 3.4918,
+      "avg_hamming": 7.494,
+      "avg_norm_hamming": 0.0922,
+      "avg_LCSSeq": 5.927,
+      "avg_norm_LCSSeq": 0.3871,
+      "avg_LCSStr": 1.788,
+      "avg_norm_LCSStr": 0.1288,
+      "avg_pos_match": 0.08,
+      "execution_time": 0.56
+   }
+}

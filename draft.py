@@ -37,36 +37,68 @@ import numpy as np
 
 
 
-def lcstr_words(X, Y):
-    """ Dynamic Programming implementation of LCS problem
-    Code inspired from https://www.geeksforgeeks.org/python-program-for-longest-common-subsequence/
-    """
-    X = X.split()
-    Y = Y.split()
-    # find the length of the strings
-    m = len(X)
-    n = len(Y)
+# def lcstr_words(X, Y):
+#     """ Dynamic Programming implementation of LCS problem
+#     Code inspired from https://www.geeksforgeeks.org/python-program-for-longest-common-subsequence/
+#     """
+#     X = X.split()
+#     Y = Y.split()
+#     # find the length of the strings
+#     m = len(X)
+#     n = len(Y)
 
-    # declaring the array for storing the dp values
-    L = [[None] * (n + 1) for i in range(m + 1)]
+#     # declaring the array for storing the dp values
+#     L = [[None] * (n + 1) for i in range(m + 1)]
 
-    """Following steps build L[m + 1][n + 1] in bottom up fashion
-    Note: L[i][j] contains length of LCS of X[0..i-1]
-    and Y[0..j-1]"""
-    for i in range(m + 1):
-        for j in range(n + 1):
-            if i == 0 or j == 0:
-                L[i][j] = 0
-            elif X[i - 1] == Y[j - 1]:
-                L[i][j] = L[i - 1][j - 1] + 1
-            else:
-                L[i][j] = max(L[i - 1][j], L[i][j - 1])
+#     """Following steps build L[m + 1][n + 1] in bottom up fashion
+#     Note: L[i][j] contains length of LCS of X[0..i-1]
+#     and Y[0..j-1]"""
+#     for i in range(m + 1):
+#         for j in range(n + 1):
+#             if i == 0 or j == 0:
+#                 L[i][j] = 0
+#             elif X[i - 1] == Y[j - 1]:
+#                 L[i][j] = L[i - 1][j - 1] + 1
+#             else:
+#                 L[i][j] = max(L[i - 1][j], L[i][j - 1])
 
-    # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
-    return L[m][n]
+#     # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
+#     return L[m][n]
+# from reorder import load_model,test_training
+# import json
+# import os
+# import time
+# def query_time():
+#     models = [file for file in os.listdir('models/') if 'led.bin' in file or 'sed.bin' in file]
+#     times = {}
+#     print(models)
+#     for model_binary_name in models:
+#         sent = ""
+#         times[model_binary_name] = {}
+#         size = path.getsize('models/'+model_binary_name) / (1024 * 1024)
+#         score,t = test_training('models/'+model_binary_name, folder_test='train_data/heldout/')
+#         times[model_binary_name]['size'] = size
+#         times[model_binary_name]['score'] = score
+#         times[model_binary_name]['qr_time'] = t
+#         print(times)
+#     with open('results/query_time.json', 'w') as f:
+#             json.dump(times, f, indent=3)
 
+# query_time()
+from reorder import evaluate_files
+import os
+dev_folder = 'dev_data/'
+# all_files = os.listdir(dev_folder)
+# test_files = [file for file in all_files if path.splitext(file)[1] == '.test']
+# ref_files = [file for file in all_files if path.splitext(file)[1] == '.ref']
 
-
+ref_files = ['dev_data/news.ref', 'dev_data/hans.ref', 'dev_data/euro.ref']
+dev_files = ['dev_data/news-ibis.dev', 'dev_data/hans-ibis.dev', 'dev_data/euro-ibis.dev']
+scores = {}
+for dev,ref in zip(dev_files[:2],ref_files[:2]):
+    score = evaluate_files(dev,ref)
+    scores[(dev,ref)] = score
+print(scores)
 
 # This code is contributed by Nikhil Kumar Singh(nickzuck_007)
 
