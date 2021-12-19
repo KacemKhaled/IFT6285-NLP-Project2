@@ -16,7 +16,9 @@
       "execution_time": 0.77,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-sc-hans-bigram-10-sed": {
       "match": 0.0,
@@ -35,7 +37,9 @@
       "execution_time": 0.66,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-sc-euro-bigram-10-sed": {
       "match": 0.0,
@@ -54,7 +58,9 @@
       "execution_time": 0.75,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-sc-news-bigram-10-led": {
       "match": 0.0,
@@ -73,7 +79,9 @@
       "execution_time": 0.81,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-sc-hans-bigram-10-led": {
       "match": 0.001,
@@ -92,7 +100,9 @@
       "execution_time": 0.69,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-sc-euro-bigram-10-led": {
       "match": 0.0,
@@ -111,7 +121,9 @@
       "execution_time": 0.77,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-sc-news-bigram-50-led": {
       "match": 0.0,
@@ -128,7 +140,9 @@
       "execution_time": 0.82,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-sc-hans-bigram-50-led": {
       "match": 0.001,
@@ -145,7 +159,9 @@
       "execution_time": 0.66,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-sc-euro-bigram-50-led": {
       "match": 0.001,
@@ -162,7 +178,9 @@
       "execution_time": 0.75,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-sc-news-bigram-50-sed": {
       "match": 0.0,
@@ -181,7 +199,9 @@
       "execution_time": 0.78,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-sc-hans-bigram-50-sed": {
       "match": 0.0,
@@ -200,7 +220,9 @@
       "execution_time": 0.67,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-sc-euro-bigram-50-sed": {
       "match": 0.001,
@@ -219,7 +241,9 @@
       "execution_time": 0.75,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-bigram-10-sed": {
       "match": 0.0,
@@ -236,7 +260,9 @@
       "execution_time": 0.79,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-bigram-10-sed": {
       "match": 0.0,
@@ -253,7 +279,9 @@
       "execution_time": 0.69,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-bigram-10-sed": {
       "match": 0.0,
@@ -270,7 +298,9 @@
       "execution_time": 0.79,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-bigram-10-led": {
       "match": 0.0,
@@ -287,7 +317,9 @@
       "execution_time": 0.82,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-bigram-10-led": {
       "match": 0.001,
@@ -304,7 +336,9 @@
       "execution_time": 0.75,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-bigram-10-led": {
       "match": 0.0,
@@ -321,7 +355,9 @@
       "execution_time": 0.8,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-trigram-99-sed": {
       "match": 0.0,
@@ -339,7 +375,9 @@
       "execution_time": 1.15,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-0-0-pr-news-trigram-99-sed": {
       "match": 0.0,
@@ -358,7 +396,9 @@
       "execution_time": 2.1,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-0-0-pr-news-trigram-99-sed": {
       "match": 0.001,
@@ -377,7 +417,9 @@
       "execution_time": 24.12,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-1-0-pr-news-trigram-99-sed": {
       "match": 0.01,
@@ -396,7 +438,9 @@
       "execution_time": 3.51,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-1-0-pr-news-trigram-99-sed": {
       "match": 0.015,
@@ -415,7 +459,9 @@
       "execution_time": 29.24,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-2-0-pr-news-trigram-99-sed": {
       "match": 0.021,
@@ -434,7 +480,9 @@
       "execution_time": 53.83,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-trigram-99-sed": {
       "match": 0.001,
@@ -452,7 +500,9 @@
       "execution_time": 0.83,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-0-0-pr-hans-trigram-99-sed": {
       "match": 0.001,
@@ -471,7 +521,9 @@
       "execution_time": 1.86,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-0-0-pr-hans-trigram-99-sed": {
       "match": 0.006,
@@ -490,7 +542,9 @@
       "execution_time": 17.37,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-1-0-pr-hans-trigram-99-sed": {
       "match": 0.016,
@@ -509,7 +563,9 @@
       "execution_time": 2.88,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-1-0-pr-hans-trigram-99-sed": {
       "match": 0.028,
@@ -528,7 +584,9 @@
       "execution_time": 24.08,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-2-0-pr-hans-trigram-99-sed": {
       "match": 0.034,
@@ -547,7 +605,9 @@
       "execution_time": 43.83,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-trigram-99-sed": {
       "match": 0.0,
@@ -565,7 +625,9 @@
       "execution_time": 0.94,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-0-0-pr-euro-trigram-99-sed": {
       "match": 0.001,
@@ -584,7 +646,9 @@
       "execution_time": 2.23,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-0-0-pr-euro-trigram-99-sed": {
       "match": 0.001,
@@ -603,7 +667,9 @@
       "execution_time": 22.11,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-1-0-pr-euro-trigram-99-sed": {
       "match": 0.016,
@@ -622,7 +688,9 @@
       "execution_time": 3.45,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-1-0-pr-euro-trigram-99-sed": {
       "match": 0.034,
@@ -641,7 +709,9 @@
       "execution_time": 30.75,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-2-0-pr-euro-trigram-99-sed": {
       "match": 0.041,
@@ -660,7 +730,9 @@
       "execution_time": 56.17,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-sc-news-trigram-99-sed": {
       "match": 0.0,
@@ -677,7 +749,9 @@
       "execution_time": 0.87,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-0-0-sc-news-trigram-99-sed": {
       "match": 0.0,
@@ -694,7 +768,9 @@
       "execution_time": 2.01,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-0-0-sc-news-trigram-99-sed": {
       "match": 0.003,
@@ -711,7 +787,9 @@
       "execution_time": 20.41,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-1-0-sc-news-trigram-99-sed": {
       "match": 0.001,
@@ -728,7 +806,9 @@
       "execution_time": 3.27,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-1-0-sc-news-trigram-99-sed": {
       "match": 0.006,
@@ -745,7 +825,9 @@
       "execution_time": 28.3,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-2-0-sc-news-trigram-99-sed": {
       "match": 0.006,
@@ -762,7 +844,9 @@
       "execution_time": 52.0,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-sc-hans-trigram-99-sed": {
       "match": 0.0,
@@ -779,7 +863,9 @@
       "execution_time": 0.8,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-0-0-sc-hans-trigram-99-sed": {
       "match": 0.005,
@@ -796,7 +882,9 @@
       "execution_time": 1.7,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-0-0-sc-hans-trigram-99-sed": {
       "match": 0.004,
@@ -813,7 +901,9 @@
       "execution_time": 16.67,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-1-0-sc-hans-trigram-99-sed": {
       "match": 0.004,
@@ -830,7 +920,9 @@
       "execution_time": 2.65,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-1-0-sc-hans-trigram-99-sed": {
       "match": 0.008,
@@ -847,7 +939,9 @@
       "execution_time": 23.36,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-2-0-sc-hans-trigram-99-sed": {
       "match": 0.01,
@@ -864,7 +958,9 @@
       "execution_time": 42.63,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-sc-euro-trigram-99-sed": {
       "match": 0.001,
@@ -881,7 +977,9 @@
       "execution_time": 0.87,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-0-0-sc-euro-trigram-99-sed": {
       "match": 0.001,
@@ -898,7 +996,9 @@
       "execution_time": 2.01,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-0-0-sc-euro-trigram-99-sed": {
       "match": 0.008,
@@ -915,7 +1015,9 @@
       "execution_time": 21.39,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-1-0-sc-euro-trigram-99-sed": {
       "match": 0.001,
@@ -932,7 +1034,9 @@
       "execution_time": 3.18,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-1-0-sc-euro-trigram-99-sed": {
       "match": 0.01,
@@ -949,7 +1053,9 @@
       "execution_time": 29.61,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-2-0-sc-euro-trigram-99-sed": {
       "match": 0.01,
@@ -966,7 +1072,9 @@
       "execution_time": 54.35,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-sc-news-bigram-99-sed": {
       "match": 0.0,
@@ -983,7 +1091,9 @@
       "execution_time": 0.76,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-0-0-sc-news-bigram-99-sed": {
       "match": 0.001,
@@ -1000,7 +1110,9 @@
       "execution_time": 1.63,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-0-0-sc-news-bigram-99-sed": {
       "match": 0.003,
@@ -1017,7 +1129,9 @@
       "execution_time": 16.45,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-0-0-sc-news-bigram-99-sed": {
       "match": 0.003,
@@ -1034,7 +1148,9 @@
       "execution_time": 207.95,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-1-0-sc-news-bigram-99-sed": {
       "match": 0.004,
@@ -1051,7 +1167,9 @@
       "execution_time": 2.61,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-1-0-sc-news-bigram-99-sed": {
       "match": 0.004,
@@ -1068,7 +1186,9 @@
       "execution_time": 22.42,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-1-0-sc-news-bigram-99-sed": {
       "match": 0.008,
@@ -1085,7 +1205,9 @@
       "execution_time": 257.77,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-2-0-sc-news-bigram-99-sed": {
       "match": 0.006,
@@ -1102,7 +1224,9 @@
       "execution_time": 41.16,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-2-0-sc-news-bigram-99-sed": {
       "match": 0.009,
@@ -1119,7 +1243,9 @@
       "execution_time": 354.78,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-3-0-sc-news-bigram-99-sed": {
       "match": 0.009,
@@ -1136,7 +1262,9 @@
       "execution_time": 641.97,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-sc-hans-bigram-99-sed": {
       "match": 0.0,
@@ -1153,7 +1281,9 @@
       "execution_time": 0.67,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-0-0-sc-hans-bigram-99-sed": {
       "match": 0.005,
@@ -1170,7 +1300,9 @@
       "execution_time": 1.36,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-0-0-sc-hans-bigram-99-sed": {
       "match": 0.008,
@@ -1187,7 +1319,9 @@
       "execution_time": 13.39,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-0-0-sc-hans-bigram-99-sed": {
       "match": 0.008,
@@ -1204,7 +1338,9 @@
       "execution_time": 173.17,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-1-0-sc-hans-bigram-99-sed": {
       "match": 0.005,
@@ -1221,7 +1357,9 @@
       "execution_time": 2.1,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-1-0-sc-hans-bigram-99-sed": {
       "match": 0.004,
@@ -1238,7 +1376,9 @@
       "execution_time": 18.36,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-1-0-sc-hans-bigram-99-sed": {
       "match": 0.009,
@@ -1255,7 +1395,9 @@
       "execution_time": 211.44,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-2-0-sc-hans-bigram-99-sed": {
       "match": 0.011,
@@ -1272,7 +1414,9 @@
       "execution_time": 33.34,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-2-0-sc-hans-bigram-99-sed": {
       "match": 0.012,
@@ -1289,7 +1433,9 @@
       "execution_time": 287.92,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-3-0-sc-hans-bigram-99-sed": {
       "match": 0.014,
@@ -1306,7 +1452,9 @@
       "execution_time": 521.65,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-sc-euro-bigram-99-sed": {
       "match": 0.001,
@@ -1323,7 +1471,9 @@
       "execution_time": 0.76,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-0-0-sc-euro-bigram-99-sed": {
       "match": 0.007,
@@ -1340,7 +1490,9 @@
       "execution_time": 1.69,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-0-0-sc-euro-bigram-99-sed": {
       "match": 0.011,
@@ -1357,7 +1509,9 @@
       "execution_time": 16.7,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-0-0-sc-euro-bigram-99-sed": {
       "match": 0.006,
@@ -1374,7 +1528,9 @@
       "execution_time": 224.82,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-1-0-sc-euro-bigram-99-sed": {
       "match": 0.011,
@@ -1391,7 +1547,9 @@
       "execution_time": 2.57,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-1-0-sc-euro-bigram-99-sed": {
       "match": 0.015,
@@ -1408,7 +1566,9 @@
       "execution_time": 23.45,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-1-0-sc-euro-bigram-99-sed": {
       "match": 0.009,
@@ -1425,7 +1585,9 @@
       "execution_time": 277.9,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-2-0-sc-euro-bigram-99-sed": {
       "match": 0.019,
@@ -1442,7 +1604,9 @@
       "execution_time": 42.72,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-2-0-sc-euro-bigram-99-sed": {
       "match": 0.008,
@@ -1459,7 +1623,9 @@
       "execution_time": 375.53,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-3-0-sc-euro-bigram-99-sed": {
       "match": 0.01,
@@ -1476,7 +1642,9 @@
       "execution_time": 680.5,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-x-sc-news-trigram-99-sed": {
       "match": 0.032,
@@ -1493,7 +1661,9 @@
       "execution_time": 200.44,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-0-x-sc-news-trigram-99-sed": {
       "match": 0.032,
@@ -1510,7 +1680,9 @@
       "execution_time": 27.84,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-0-x-sc-news-trigram-99-sed": {
       "match": 0.032,
@@ -1527,7 +1699,9 @@
       "execution_time": 38.53,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-0-x-sc-news-trigram-99-sed": {
       "match": 0.033,
@@ -1544,7 +1718,9 @@
       "execution_time": 246.38,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-1-x-sc-news-trigram-99-sed": {
       "match": 0.032,
@@ -1561,7 +1737,9 @@
       "execution_time": 34.1,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-1-x-sc-news-trigram-99-sed": {
       "match": 0.03,
@@ -1578,7 +1756,9 @@
       "execution_time": 49.42,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-1-x-sc-news-trigram-99-sed": {
       "match": 0.032,
@@ -1595,7 +1775,9 @@
       "execution_time": 300.49,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-2-x-sc-news-trigram-99-sed": {
       "match": 0.031,
@@ -1612,7 +1794,9 @@
       "execution_time": 81.44,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-2-x-sc-news-trigram-99-sed": {
       "match": 0.032,
@@ -1629,7 +1813,9 @@
       "execution_time": 414.96,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-3-x-sc-news-trigram-99-sed": {
       "match": 0.033,
@@ -1646,7 +1832,9 @@
       "execution_time": 895.37,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-x-sc-hans-trigram-99-sed": {
       "match": 0.028,
@@ -1663,7 +1851,9 @@
       "execution_time": 29.25,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-0-x-sc-hans-trigram-99-sed": {
       "match": 0.028,
@@ -1680,7 +1870,9 @@
       "execution_time": 23.03,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-0-x-sc-hans-trigram-99-sed": {
       "match": 0.029,
@@ -1697,7 +1889,9 @@
       "execution_time": 31.99,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-0-x-sc-hans-trigram-99-sed": {
       "match": 0.028,
@@ -1714,7 +1908,9 @@
       "execution_time": 204.03,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-1-x-sc-hans-trigram-99-sed": {
       "match": 0.028,
@@ -1731,7 +1927,9 @@
       "execution_time": 31.76,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-1-x-sc-hans-trigram-99-sed": {
       "match": 0.029,
@@ -1748,7 +1946,9 @@
       "execution_time": 41.28,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-1-x-sc-hans-trigram-99-sed": {
       "match": 0.028,
@@ -1765,7 +1965,9 @@
       "execution_time": 249.65,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-2-x-sc-hans-trigram-99-sed": {
       "match": 0.031,
@@ -1782,7 +1984,9 @@
       "execution_time": 67.77,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-2-x-sc-hans-trigram-99-sed": {
       "match": 0.029,
@@ -1799,7 +2003,9 @@
       "execution_time": 342.04,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-3-x-sc-hans-trigram-99-sed": {
       "match": 0.03,
@@ -1816,7 +2022,9 @@
       "execution_time": 710.76,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-x-sc-euro-trigram-99-sed": {
       "match": 0.01,
@@ -1833,7 +2041,9 @@
       "execution_time": 34.39,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-0-x-sc-euro-trigram-99-sed": {
       "match": 0.01,
@@ -1850,7 +2060,9 @@
       "execution_time": 25.74,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-0-x-sc-euro-trigram-99-sed": {
       "match": 0.011,
@@ -1867,7 +2079,9 @@
       "execution_time": 39.34,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-0-x-sc-euro-trigram-99-sed": {
       "match": 0.013,
@@ -1884,7 +2098,9 @@
       "execution_time": 257.58,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-1-x-sc-euro-trigram-99-sed": {
       "match": 0.011,
@@ -1901,7 +2117,9 @@
       "execution_time": 34.5,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-1-x-sc-euro-trigram-99-sed": {
       "match": 0.011,
@@ -1918,7 +2136,9 @@
       "execution_time": 49.36,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-1-x-sc-euro-trigram-99-sed": {
       "match": 0.011,
@@ -1935,7 +2155,9 @@
       "execution_time": 308.52,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-2-x-sc-euro-trigram-99-sed": {
       "match": 0.011,
@@ -1952,7 +2174,9 @@
       "execution_time": 83.61,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-2-x-sc-euro-trigram-99-sed": {
       "match": 0.013,
@@ -1969,7 +2193,9 @@
       "execution_time": 437.08,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-3-x-sc-euro-trigram-99-sed": {
       "match": 0.012,
@@ -1986,7 +2212,9 @@
       "execution_time": 849.83,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-trigram-10-led": {
       "match": 0.0,
@@ -2003,7 +2231,9 @@
       "execution_time": 0.86,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-trigram-10-led": {
       "match": 0.0,
@@ -2020,7 +2250,9 @@
       "execution_time": 0.77,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-trigram-10-led": {
       "match": 0.0,
@@ -2037,7 +2269,9 @@
       "execution_time": 0.84,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-trigram-10-sed": {
       "match": 0.0,
@@ -2056,7 +2290,9 @@
       "execution_time": 1.0,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-trigram-10-sed": {
       "match": 0.001,
@@ -2075,7 +2311,9 @@
       "execution_time": 0.74,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-trigram-10-sed": {
       "match": 0.0,
@@ -2094,7 +2332,9 @@
       "execution_time": 0.84,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-bigram-99-sed": {
       "match": 0.0,
@@ -2111,7 +2351,9 @@
       "execution_time": 0.85,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-bigram-99-sed": {
       "match": 0.0,
@@ -2128,7 +2370,9 @@
       "execution_time": 0.7,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-bigram-99-sed": {
       "match": 0.0,
@@ -2145,7 +2389,9 @@
       "execution_time": 0.81,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-bigram-50-sed": {
       "match": 0.0,
@@ -2163,7 +2409,9 @@
       "execution_time": 0.81,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-bigram-50-sed": {
       "match": 0.0,
@@ -2181,7 +2429,9 @@
       "execution_time": 0.71,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-bigram-50-sed": {
       "match": 0.0,
@@ -2199,7 +2449,9 @@
       "execution_time": 0.8,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-0-pr-news-trigram-50-sed": {
       "match": 0.0,
@@ -2218,7 +2470,9 @@
       "execution_time": 1.28,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-0-pr-hans-trigram-50-sed": {
       "match": 0.001,
@@ -2237,7 +2491,9 @@
       "execution_time": 0.75,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-0-pr-euro-trigram-50-sed": {
       "match": 0.0,
@@ -2256,7 +2512,9 @@
       "execution_time": 0.85,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-1-0-t-sc-news-trigram-99-sed": {
       "match": 0.031,
@@ -2273,7 +2531,9 @@
       "execution_time": 12.92,
       "head": 1,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-0-t-sc-news-trigram-99-sed": {
       "match": 0.03,
@@ -2290,7 +2550,9 @@
       "execution_time": 9.3,
       "head": 2,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-0-t-sc-news-trigram-99-sed": {
       "match": 0.034,
@@ -2307,7 +2569,9 @@
       "execution_time": 249.49,
       "head": 4,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-1-t-sc-news-trigram-99-sed": {
       "match": 0.031,
@@ -2324,7 +2588,9 @@
       "execution_time": 14.5,
       "head": 2,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-1-t-sc-news-trigram-99-sed": {
       "match": 0.036,
@@ -2341,7 +2607,9 @@
       "execution_time": 299.45,
       "head": 4,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-2-t-sc-news-trigram-99-sed": {
       "match": 0.038,
@@ -2358,7 +2626,9 @@
       "execution_time": 409.06,
       "head": 4,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-3-t-sc-news-trigram-99-sed": {
       "match": 0.037,
@@ -2375,7 +2645,9 @@
       "execution_time": 743.14,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-1-0-t-sc-hans-trigram-99-sed": {
       "match": 0.026,
@@ -2392,7 +2664,9 @@
       "execution_time": 12.61,
       "head": 1,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-0-t-sc-hans-trigram-99-sed": {
       "match": 0.027,
@@ -2409,7 +2683,9 @@
       "execution_time": 9.01,
       "head": 2,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-0-t-sc-hans-trigram-99-sed": {
       "match": 0.027,
@@ -2426,7 +2702,9 @@
       "execution_time": 199.48,
       "head": 4,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-1-t-sc-hans-trigram-99-sed": {
       "match": 0.029,
@@ -2443,7 +2721,9 @@
       "execution_time": 12.87,
       "head": 2,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-1-t-sc-hans-trigram-99-sed": {
       "match": 0.03,
@@ -2460,7 +2740,9 @@
       "execution_time": 242.95,
       "head": 4,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-2-t-sc-hans-trigram-99-sed": {
       "match": 0.032,
@@ -2477,7 +2759,9 @@
       "execution_time": 327.12,
       "head": 4,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-3-t-sc-hans-trigram-99-sed": {
       "match": 0.032,
@@ -2494,7 +2778,9 @@
       "execution_time": 583.27,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-1-0-t-sc-euro-trigram-99-sed": {
       "match": 0.009,
@@ -2511,7 +2797,9 @@
       "execution_time": 13.17,
       "head": 1,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-0-t-sc-euro-trigram-99-sed": {
       "match": 0.009,
@@ -2528,7 +2816,9 @@
       "execution_time": 9.09,
       "head": 2,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-0-t-sc-euro-trigram-99-sed": {
       "match": 0.019,
@@ -2545,7 +2835,9 @@
       "execution_time": 247.22,
       "head": 4,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-1-t-sc-euro-trigram-99-sed": {
       "match": 0.009,
@@ -2562,7 +2854,9 @@
       "execution_time": 14.09,
       "head": 2,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-1-t-sc-euro-trigram-99-sed": {
       "match": 0.019,
@@ -2579,7 +2873,9 @@
       "execution_time": 299.6,
       "head": 4,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-2-t-sc-euro-trigram-99-sed": {
       "match": 0.021,
@@ -2596,7 +2892,9 @@
       "execution_time": 409.01,
       "head": 4,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-3-t-sc-euro-trigram-99-sed": {
       "match": 0.02,
@@ -2613,7 +2911,9 @@
       "execution_time": 740.16,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-0-t-sc-news-trigram-99-sed": {
       "match": 0.032,
@@ -2630,7 +2930,9 @@
       "execution_time": 24.75,
       "head": 3,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-1-t-sc-news-trigram-99-sed": {
       "match": 0.033,
@@ -2647,7 +2949,9 @@
       "execution_time": 37.95,
       "head": 3,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-2-t-sc-news-trigram-99-sed": {
       "match": 0.034,
@@ -2664,7 +2968,9 @@
       "execution_time": 59.51,
       "head": 3,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-0-t-sc-hans-trigram-99-sed": {
       "match": 0.03,
@@ -2681,7 +2987,9 @@
       "execution_time": 20.97,
       "head": 3,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-1-t-sc-hans-trigram-99-sed": {
       "match": 0.031,
@@ -2698,7 +3006,9 @@
       "execution_time": 27.46,
       "head": 3,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-2-t-sc-hans-trigram-99-sed": {
       "match": 0.033,
@@ -2715,7 +3025,9 @@
       "execution_time": 49.59,
       "head": 3,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-0-t-sc-euro-trigram-99-sed": {
       "match": 0.015,
@@ -2732,7 +3044,9 @@
       "execution_time": 24.13,
       "head": 3,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-1-t-sc-euro-trigram-99-sed": {
       "match": 0.016,
@@ -2749,7 +3063,9 @@
       "execution_time": 33.01,
       "head": 3,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-2-t-sc-euro-trigram-99-sed": {
       "match": 0.014,
@@ -2766,7 +3082,9 @@
       "execution_time": 58.38,
       "head": 3,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-1-0-0-sc-news-bigram-99-sed": {
       "match": 0.002,
@@ -2783,7 +3101,9 @@
       "execution_time": 1.14,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-full3-head-1-0-0-sc-hans-bigram-99-sed": {
       "match": 0.006,
@@ -2800,7 +3120,9 @@
       "execution_time": 0.98,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-full3-head-1-0-0-sc-euro-bigram-99-sed": {
       "match": 0.004,
@@ -2817,7 +3139,9 @@
       "execution_time": 1.11,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-full3-head-2-0-0-sc-news-bigram-99-sed": {
       "match": 0.007,
@@ -2834,7 +3158,9 @@
       "execution_time": 3.61,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-0-0-sc-news-bigram-99-sed": {
       "match": 0.011,
@@ -2851,7 +3177,9 @@
       "execution_time": 37.0,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-2-1-0-sc-news-bigram-99-sed": {
       "match": 0.008,
@@ -2868,7 +3196,9 @@
       "execution_time": 6.07,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-1-0-sc-news-bigram-99-sed": {
       "match": 0.011,
@@ -2885,7 +3215,9 @@
       "execution_time": 50.6,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-3-2-0-sc-news-bigram-99-sed": {
       "match": 0.012,
@@ -2902,7 +3234,9 @@
       "execution_time": 95.49,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-2-0-0-sc-hans-bigram-99-sed": {
       "match": 0.01,
@@ -2919,7 +3253,9 @@
       "execution_time": 2.98,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-0-0-sc-hans-bigram-99-sed": {
       "match": 0.008,
@@ -2936,7 +3272,9 @@
       "execution_time": 29.45,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-1-0-sc-hans-bigram-99-sed": {
       "match": 0.011,
@@ -2953,7 +3291,9 @@
       "execution_time": 4.91,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-1-0-sc-hans-bigram-99-sed": {
       "match": 0.012,
@@ -2970,7 +3310,9 @@
       "execution_time": 40.75,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-2-0-sc-hans-bigram-99-sed": {
       "match": 0.009,
@@ -2987,7 +3329,9 @@
       "execution_time": 76.18,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-0-0-sc-euro-bigram-99-sed": {
       "match": 0.003,
@@ -3004,7 +3348,9 @@
       "execution_time": 3.71,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-0-0-sc-euro-bigram-99-sed": {
       "match": 0.011,
@@ -3021,7 +3367,9 @@
       "execution_time": 39.47,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-2-1-0-sc-euro-bigram-99-sed": {
       "match": 0.004,
@@ -3038,7 +3386,9 @@
       "execution_time": 6.2,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-1-0-sc-euro-bigram-99-sed": {
       "match": 0.012,
@@ -3055,7 +3405,9 @@
       "execution_time": 54.77,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-2-0-sc-euro-bigram-99-sed": {
       "match": 0.013,
@@ -3072,7 +3424,9 @@
       "execution_time": 94.68,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-1-0-0-sc-news-trigram-99-sed": {
       "match": 0.004,
@@ -3089,7 +3443,9 @@
       "execution_time": 1.56,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-full3-head-2-0-0-sc-news-trigram-99-sed": {
       "match": 0.009,
@@ -3106,7 +3462,9 @@
       "execution_time": 4.74,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-0-0-sc-news-trigram-99-sed": {
       "match": 0.014,
@@ -3123,7 +3481,9 @@
       "execution_time": 45.0,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-2-1-0-sc-news-trigram-99-sed": {
       "match": 0.006,
@@ -3140,7 +3500,9 @@
       "execution_time": 7.34,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-1-0-sc-news-trigram-99-sed": {
       "match": 0.013,
@@ -3157,7 +3519,9 @@
       "execution_time": 59.0,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-3-2-0-sc-news-trigram-99-sed": {
       "match": 0.017,
@@ -3174,7 +3538,9 @@
       "execution_time": 106.57,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-1-0-0-sc-hans-trigram-99-sed": {
       "match": 0.006,
@@ -3191,7 +3557,9 @@
       "execution_time": 1.2,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-0-0-sc-hans-trigram-99-sed": {
       "match": 0.01,
@@ -3208,7 +3576,9 @@
       "execution_time": 3.55,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-0-0-sc-hans-trigram-99-sed": {
       "match": 0.012,
@@ -3225,7 +3595,9 @@
       "execution_time": 34.66,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-1-0-sc-hans-trigram-99-sed": {
       "match": 0.013,
@@ -3242,7 +3614,9 @@
       "execution_time": 5.72,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-1-0-sc-hans-trigram-99-sed": {
       "match": 0.016,
@@ -3259,7 +3633,9 @@
       "execution_time": 45.2,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-2-0-sc-hans-trigram-99-sed": {
       "match": 0.017,
@@ -3276,7 +3652,9 @@
       "execution_time": 80.41,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-1-0-0-sc-euro-trigram-99-sed": {
       "match": 0.002,
@@ -3293,7 +3671,9 @@
       "execution_time": 1.25,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-full3-head-2-0-0-sc-euro-trigram-99-sed": {
       "match": 0.006,
@@ -3310,7 +3690,9 @@
       "execution_time": 4.2,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-0-0-sc-euro-trigram-99-sed": {
       "match": 0.009,
@@ -3327,7 +3709,9 @@
       "execution_time": 44.25,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-2-1-0-sc-euro-trigram-99-sed": {
       "match": 0.007,
@@ -3344,7 +3728,9 @@
       "execution_time": 7.03,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-1-0-sc-euro-trigram-99-sed": {
       "match": 0.013,
@@ -3361,7 +3747,9 @@
       "execution_time": 58.67,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-2-0-sc-euro-trigram-99-sed": {
       "match": 0.015,
@@ -3378,7 +3766,9 @@
       "execution_time": 108.52,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-1-0-0-pr-news-trigram-99-sed": {
       "match": 0.005,
@@ -3395,7 +3785,9 @@
       "execution_time": 1.3,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-full3-head-2-0-0-pr-news-trigram-99-sed": {
       "match": 0.016,
@@ -3412,7 +3804,9 @@
       "execution_time": 4.22,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-0-0-pr-news-trigram-99-sed": {
       "match": 0.025,
@@ -3429,7 +3823,9 @@
       "execution_time": 43.88,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-2-1-0-pr-news-trigram-99-sed": {
       "match": 0.015,
@@ -3446,7 +3842,9 @@
       "execution_time": 7.72,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-1-0-pr-news-trigram-99-sed": {
       "match": 0.029,
@@ -3463,7 +3861,9 @@
       "execution_time": 57.88,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-3-2-0-pr-news-trigram-99-sed": {
       "match": 0.038,
@@ -3480,7 +3880,9 @@
       "execution_time": 106.77,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-1-0-0-pr-hans-trigram-99-sed": {
       "match": 0.007,
@@ -3497,7 +3899,9 @@
       "execution_time": 1.07,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-0-0-pr-hans-trigram-99-sed": {
       "match": 0.017,
@@ -3514,7 +3918,9 @@
       "execution_time": 3.39,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-0-0-pr-hans-trigram-99-sed": {
       "match": 0.032,
@@ -3531,7 +3937,9 @@
       "execution_time": 33.25,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-1-0-pr-hans-trigram-99-sed": {
       "match": 0.017,
@@ -3548,7 +3956,9 @@
       "execution_time": 5.6,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-1-0-pr-hans-trigram-99-sed": {
       "match": 0.034,
@@ -3565,7 +3975,9 @@
       "execution_time": 44.87,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-2-0-pr-hans-trigram-99-sed": {
       "match": 0.036,
@@ -3582,7 +3994,9 @@
       "execution_time": 80.85,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-1-0-0-pr-euro-trigram-99-sed": {
       "match": 0.004,
@@ -3599,7 +4013,9 @@
       "execution_time": 1.15,
       "head": 1,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 1,
+      "devset": "euro"
    },
    "KenLM-full3-head-2-0-0-pr-euro-trigram-99-sed": {
       "match": 0.011,
@@ -3616,7 +4032,9 @@
       "execution_time": 4.02,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-0-0-pr-euro-trigram-99-sed": {
       "match": 0.021,
@@ -3633,7 +4051,9 @@
       "execution_time": 41.41,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-2-1-0-pr-euro-trigram-99-sed": {
       "match": 0.015,
@@ -3650,7 +4070,9 @@
       "execution_time": 7.45,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-1-0-pr-euro-trigram-99-sed": {
       "match": 0.027,
@@ -3667,7 +4089,9 @@
       "execution_time": 58.98,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-3-2-0-pr-euro-trigram-99-sed": {
       "match": 0.032,
@@ -3684,7 +4108,9 @@
       "execution_time": 105.96,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-0-0-pr-news-bigram-99-sed": {
       "match": 0.001,
@@ -3701,7 +4127,9 @@
       "execution_time": 2.02,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-0-0-pr-news-bigram-99-sed": {
       "match": 0.001,
@@ -3718,7 +4146,9 @@
       "execution_time": 17.44,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-1-0-pr-news-bigram-99-sed": {
       "match": 0.01,
@@ -3735,7 +4165,9 @@
       "execution_time": 2.89,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-1-0-pr-news-bigram-99-sed": {
       "match": 0.014,
@@ -3752,7 +4184,9 @@
       "execution_time": 24.49,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-3-2-0-pr-news-bigram-99-sed": {
       "match": 0.016,
@@ -3769,7 +4203,9 @@
       "execution_time": 44.44,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-acc3-head-2-0-0-pr-hans-bigram-99-sed": {
       "match": 0.001,
@@ -3786,7 +4222,9 @@
       "execution_time": 1.47,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-0-0-pr-hans-bigram-99-sed": {
       "match": 0.001,
@@ -3803,7 +4241,9 @@
       "execution_time": 14.09,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-1-0-pr-hans-bigram-99-sed": {
       "match": 0.009,
@@ -3820,7 +4260,9 @@
       "execution_time": 2.49,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-1-0-pr-hans-bigram-99-sed": {
       "match": 0.016,
@@ -3837,7 +4279,9 @@
       "execution_time": 20.59,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-3-2-0-pr-hans-bigram-99-sed": {
       "match": 0.017,
@@ -3854,7 +4298,9 @@
       "execution_time": 36.19,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-acc3-head-2-0-0-pr-euro-bigram-99-sed": {
       "match": 0.0,
@@ -3871,7 +4317,9 @@
       "execution_time": 1.95,
       "head": 2,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-0-0-pr-euro-bigram-99-sed": {
       "match": 0.0,
@@ -3888,7 +4336,9 @@
       "execution_time": 18.38,
       "head": 3,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-2-1-0-pr-euro-bigram-99-sed": {
       "match": 0.017,
@@ -3905,7 +4355,9 @@
       "execution_time": 3.19,
       "head": 2,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 2,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-1-0-pr-euro-bigram-99-sed": {
       "match": 0.023,
@@ -3922,7 +4374,9 @@
       "execution_time": 26.25,
       "head": 3,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-acc3-head-3-2-0-pr-euro-bigram-99-sed": {
       "match": 0.024,
@@ -3939,7 +4393,9 @@
       "execution_time": 44.76,
       "head": 3,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 3,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-0-0-sc-news-trigram-99-sed": {
       "match": 0.026,
@@ -3956,7 +4412,9 @@
       "execution_time": 585.86,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-1-0-sc-news-trigram-99-sed": {
       "match": 0.03,
@@ -3973,7 +4431,9 @@
       "execution_time": 682.34,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-2-0-sc-news-trigram-99-sed": {
       "match": 0.029,
@@ -3990,7 +4450,9 @@
       "execution_time": 896.93,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-0-0-sc-hans-trigram-99-sed": {
       "match": 0.019,
@@ -4007,7 +4469,9 @@
       "execution_time": 438.89,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-1-0-sc-hans-trigram-99-sed": {
       "match": 0.021,
@@ -4024,7 +4488,9 @@
       "execution_time": 526.15,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-2-0-sc-hans-trigram-99-sed": {
       "match": 0.023,
@@ -4041,7 +4507,9 @@
       "execution_time": 706.41,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-0-0-sc-euro-trigram-99-sed": {
       "match": 0.025,
@@ -4058,7 +4526,9 @@
       "execution_time": 725.71,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-1-0-sc-euro-trigram-99-sed": {
       "match": 0.024,
@@ -4075,7 +4545,9 @@
       "execution_time": 683.12,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-2-0-sc-euro-trigram-99-sed": {
       "match": 0.024,
@@ -4092,7 +4564,9 @@
       "execution_time": 900.35,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-0-0-sc-news-trigram-99-sed": {
       "match": 0.007,
@@ -4109,7 +4583,9 @@
       "execution_time": 245.6,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-0-0-sc-hans-trigram-99-sed": {
       "match": 0.004,
@@ -4126,7 +4602,9 @@
       "execution_time": 263.42,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-0-0-sc-euro-trigram-99-sed": {
       "match": 0.011,
@@ -4143,7 +4621,9 @@
       "execution_time": 249.11,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-3-0-sc-news-trigram-99-sed": {
       "match": 0.027,
@@ -4160,7 +4640,9 @@
       "execution_time": 1756.25,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-3-0-sc-hans-trigram-99-sed": {
       "match": 0.023,
@@ -4177,7 +4659,9 @@
       "execution_time": 1386.44,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-3-0-sc-euro-trigram-99-sed": {
       "match": 0.024,
@@ -4194,58 +4678,9 @@
       "execution_time": 1767.34,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
-   },
-   "KenLM-acc3-head-4-0--sc-news-trigram-99-sed": {
-      "match": 0.007,
-      "bleu_score": 29.9454,
-      "avg_hamming": 7.273,
-      "avg_norm_hamming": 0.0924,
-      "avg_LCSSeq": 7.818,
-      "avg_norm_LCSSeq": 0.5084,
-      "avg_LCSStr": 3.94,
-      "avg_norm_LCSStr": 0.2791,
-      "avg_pos_match": 0.0758,
-      "model_size": 4127.61,
-      "loading_time": 105.59,
-      "execution_time": 302.78,
-      "head": 4,
-      "backoff": 0,
-      "bf_tail": false
-   },
-   "KenLM-acc3-head-4-0--sc-hans-trigram-99-sed": {
-      "match": 0.004,
-      "bleu_score": 25.814,
-      "avg_hamming": 6.885,
-      "avg_norm_hamming": 0.1029,
-      "avg_LCSSeq": 7.068,
-      "avg_norm_LCSSeq": 0.5215,
-      "avg_LCSStr": 3.448,
-      "avg_norm_LCSStr": 0.2832,
-      "avg_pos_match": 0.0983,
-      "model_size": 4127.61,
-      "loading_time": 105.59,
-      "execution_time": 197.82,
-      "head": 4,
-      "backoff": 0,
-      "bf_tail": false
-   },
-   "KenLM-acc3-head-4-0--sc-euro-trigram-99-sed": {
-      "match": 0.011,
-      "bleu_score": 27.5148,
-      "avg_hamming": 7.831,
-      "avg_norm_hamming": 0.1016,
-      "avg_LCSSeq": 7.892,
-      "avg_norm_LCSSeq": 0.5245,
-      "avg_LCSStr": 3.793,
-      "avg_norm_LCSStr": 0.2772,
-      "avg_pos_match": 0.0982,
-      "model_size": 4127.61,
-      "loading_time": 105.59,
-      "execution_time": 252.08,
-      "head": 4,
-      "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-0-0-pr-news-trigram-99-sed": {
       "match": 0.037,
@@ -4262,7 +4697,9 @@
       "execution_time": 594.19,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-1-0-pr-news-trigram-99-sed": {
       "match": 0.041,
@@ -4279,7 +4716,9 @@
       "execution_time": 697.41,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-2-0-pr-news-trigram-99-sed": {
       "match": 0.05,
@@ -4296,7 +4735,9 @@
       "execution_time": 945.41,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-3-0-pr-news-trigram-99-sed": {
       "match": 0.053,
@@ -4313,7 +4754,9 @@
       "execution_time": 1755.73,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-0-0-pr-hans-trigram-99-sed": {
       "match": 0.044,
@@ -4330,7 +4773,9 @@
       "execution_time": 473.9,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-1-0-pr-hans-trigram-99-sed": {
       "match": 0.049,
@@ -4347,7 +4792,9 @@
       "execution_time": 569.18,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-2-0-pr-hans-trigram-99-sed": {
       "match": 0.06,
@@ -4364,7 +4811,9 @@
       "execution_time": 770.84,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-3-0-pr-hans-trigram-99-sed": {
       "match": 0.065,
@@ -4381,7 +4830,9 @@
       "execution_time": 1387.12,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-0-0-pr-euro-trigram-99-sed": {
       "match": 0.041,
@@ -4398,7 +4849,9 @@
       "execution_time": 608.35,
       "head": 4,
       "backoff": 0,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-1-0-pr-euro-trigram-99-sed": {
       "match": 0.044,
@@ -4415,7 +4868,9 @@
       "execution_time": 713.47,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-2-0-pr-euro-trigram-99-sed": {
       "match": 0.053,
@@ -4432,7 +4887,9 @@
       "execution_time": 962.94,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-3-0-pr-euro-trigram-99-sed": {
       "match": 0.058,
@@ -4449,7 +4906,9 @@
       "execution_time": 1759.33,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-1-0-sc-news-trigram-99-sed": {
       "match": 0.011,
@@ -4466,7 +4925,9 @@
       "execution_time": 302.18,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-2-0-sc-news-trigram-99-sed": {
       "match": 0.011,
@@ -4483,7 +4944,9 @@
       "execution_time": 432.09,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-3-0-sc-news-trigram-99-sed": {
       "match": 0.011,
@@ -4500,7 +4963,9 @@
       "execution_time": 760.52,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-acc3-head-4-1-0-sc-hans-trigram-99-sed": {
       "match": 0.007,
@@ -4517,7 +4982,9 @@
       "execution_time": 468.44,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-2-0-sc-hans-trigram-99-sed": {
       "match": 0.008,
@@ -4534,7 +5001,9 @@
       "execution_time": 569.44,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-3-0-sc-hans-trigram-99-sed": {
       "match": 0.01,
@@ -4551,7 +5020,9 @@
       "execution_time": 599.24,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-acc3-head-4-1-0-sc-euro-trigram-99-sed": {
       "match": 0.011,
@@ -4568,7 +5039,9 @@
       "execution_time": 304.31,
       "head": 4,
       "backoff": 1,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-2-0-sc-euro-trigram-99-sed": {
       "match": 0.016,
@@ -4585,7 +5058,9 @@
       "execution_time": 764.47,
       "head": 4,
       "backoff": 2,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-acc3-head-4-3-0-sc-euro-trigram-99-sed": {
       "match": 0.02,
@@ -4602,7 +5077,9 @@
       "execution_time": 895.14,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "O",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-1-0-t-sc-news-trigram-99-sed": {
       "match": 0.035,
@@ -4619,7 +5096,9 @@
       "execution_time": 17.91,
       "head": 1,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 1,
+      "devset": "news"
    },
    "KenLM-full3-head-2-0-t-sc-news-trigram-99-sed": {
       "match": 0.036,
@@ -4636,7 +5115,9 @@
       "execution_time": 13.98,
       "head": 2,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-0-t-sc-news-trigram-99-sed": {
       "match": 0.034,
@@ -4653,7 +5134,9 @@
       "execution_time": 48.98,
       "head": 3,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-4-0-t-sc-news-trigram-99-sed": {
       "match": 0.037,
@@ -4670,7 +5153,9 @@
       "execution_time": 574.06,
       "head": 4,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-2-1-t-sc-news-trigram-99-sed": {
       "match": 0.039,
@@ -4687,7 +5172,9 @@
       "execution_time": 23.35,
       "head": 2,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "news"
    },
    "KenLM-full3-head-3-1-t-sc-news-trigram-99-sed": {
       "match": 0.036,
@@ -4704,7 +5191,9 @@
       "execution_time": 67.1,
       "head": 3,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-4-1-t-sc-news-trigram-99-sed": {
       "match": 0.041,
@@ -4721,7 +5210,9 @@
       "execution_time": 684.96,
       "head": 4,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-3-2-t-sc-news-trigram-99-sed": {
       "match": 0.037,
@@ -4738,7 +5229,9 @@
       "execution_time": 119.63,
       "head": 3,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "news"
    },
    "KenLM-full3-head-4-2-t-sc-news-trigram-99-sed": {
       "match": 0.044,
@@ -4755,7 +5248,9 @@
       "execution_time": 1047.03,
       "head": 4,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-3-t-sc-news-trigram-99-sed": {
       "match": 0.045,
@@ -4772,7 +5267,9 @@
       "execution_time": 1823.96,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-1-0-t-sc-hans-trigram-99-sed": {
       "match": 0.03,
@@ -4789,7 +5286,9 @@
       "execution_time": 17.76,
       "head": 1,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 1,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-0-t-sc-hans-trigram-99-sed": {
       "match": 0.028,
@@ -4806,7 +5305,9 @@
       "execution_time": 14.07,
       "head": 2,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-0-t-sc-hans-trigram-99-sed": {
       "match": 0.027,
@@ -4823,7 +5324,9 @@
       "execution_time": 42.64,
       "head": 3,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-0-t-sc-hans-trigram-99-sed": {
       "match": 0.029,
@@ -4840,7 +5343,9 @@
       "execution_time": 481.82,
       "head": 4,
       "backoff": 0,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-2-1-t-sc-hans-trigram-99-sed": {
       "match": 0.028,
@@ -4857,7 +5362,9 @@
       "execution_time": 21.28,
       "head": 2,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 2,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-1-t-sc-hans-trigram-99-sed": {
       "match": 0.029,
@@ -4874,7 +5381,9 @@
       "execution_time": 56.73,
       "head": 3,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-1-t-sc-hans-trigram-99-sed": {
       "match": 0.03,
@@ -4891,7 +5400,9 @@
       "execution_time": 584.8,
       "head": 4,
       "backoff": 1,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-3-2-t-sc-hans-trigram-99-sed": {
       "match": 0.031,
@@ -4908,7 +5419,9 @@
       "execution_time": 108.75,
       "head": 3,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 3,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-2-t-sc-hans-trigram-99-sed": {
       "match": 0.031,
@@ -4925,7 +5438,9 @@
       "execution_time": 790.01,
       "head": 4,
       "backoff": 2,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-3-t-sc-hans-trigram-99-sed": {
       "match": 0.031,
@@ -4942,7 +5457,9 @@
       "execution_time": 1363.15,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-3-x-sc-news-trigram-99-sed": {
       "match": 0.04,
@@ -4959,7 +5476,9 @@
       "execution_time": 1831.34,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-3-x-sc-hans-trigram-99-sed": {
       "match": 0.035,
@@ -4976,7 +5495,9 @@
       "execution_time": 1431.86,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-3-x-sc-euro-trigram-99-sed": {
       "match": 0.012,
@@ -4993,7 +5514,9 @@
       "execution_time": 1853.09,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-3-t-sc-euro-trigram-99-sed": {
       "match": 0.016,
@@ -5010,7 +5533,9 @@
       "execution_time": 1769.46,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-3-t-pr-news-trigram-99-sed": {
       "match": 0.068,
@@ -5027,7 +5552,9 @@
       "execution_time": 1805.81,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-3-t-pr-hans-trigram-99-sed": {
       "match": 0.083,
@@ -5044,7 +5571,9 @@
       "execution_time": 1520.76,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-3-t-pr-euro-trigram-99-sed": {
       "match": 0.078,
@@ -5061,7 +5590,9 @@
       "execution_time": 1886.19,
       "head": 4,
       "backoff": 3,
-      "bf_tail": true
+      "bf_tail": "t",
+      "head_size": 4,
+      "devset": "euro"
    },
    "KenLM-full3-head-4-3-x-pr-news-trigram-99-sed": {
       "match": 0.069,
@@ -5078,7 +5609,9 @@
       "execution_time": 1747.65,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "news"
    },
    "KenLM-full3-head-4-3-x-pr-hans-trigram-99-sed": {
       "match": 0.088,
@@ -5095,7 +5628,9 @@
       "execution_time": 1363.95,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "hans"
    },
    "KenLM-full3-head-4-3-x-pr-euro-trigram-99-sed": {
       "match": 0.079,
@@ -5112,6 +5647,8 @@
       "execution_time": 1709.97,
       "head": 4,
       "backoff": 3,
-      "bf_tail": false
+      "bf_tail": "x",
+      "head_size": 4,
+      "devset": "euro"
    }
 }

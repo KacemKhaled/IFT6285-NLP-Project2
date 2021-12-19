@@ -87,6 +87,7 @@ import numpy as np
 # query_time()
 from reorder import evaluate_files
 import os
+import pandas as pd
 dev_folder = 'dev_data/'
 # all_files = os.listdir(dev_folder)
 # test_files = [file for file in all_files if path.splitext(file)[1] == '.test']
@@ -95,10 +96,11 @@ dev_folder = 'dev_data/'
 ref_files = ['dev_data/news.ref', 'dev_data/hans.ref', 'dev_data/euro.ref']
 dev_files = ['dev_data/news-ibis.dev', 'dev_data/hans-ibis.dev', 'dev_data/euro-ibis.dev']
 scores = {}
-for dev,ref in zip(dev_files[:2],ref_files[:2]):
+for dev,ref in zip(dev_files,ref_files):
     score = evaluate_files(dev,ref)
     scores[(dev,ref)] = score
 print(scores)
+print(pd.DataFrame(scores).T)
 
 # This code is contributed by Nikhil Kumar Singh(nickzuck_007)
 
